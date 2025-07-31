@@ -479,6 +479,7 @@ body {
     line-height: 1.6;
 }
 
+/* Default quote button (for non-flip cards) */
 .quote-btn {
     background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
     color: white;
@@ -494,6 +495,8 @@ body {
     position: relative;
     overflow: hidden;
     letter-spacing: 0.025em;
+    text-align: center;
+    display: inline-block;
 }
 
 .quote-btn::before {
@@ -758,25 +761,55 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
+/* Flip Card Container */
+.service-card-container {
+    perspective: 1000px;
+    height: 520px;
+    cursor: pointer;
+}
+
 .service-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.service-card-container.flipped .service-card {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back of Card */
+.service-card-front,
+.service-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: var(--space-2xl);
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-lg);
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 
+        0 8px 25px -8px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     overflow: hidden;
 }
 
-.service-card::before {
+.service-card-front::before,
+.service-card-back::before {
     content: '';
     position: absolute;
     top: 0;
@@ -784,17 +817,206 @@ body {
     right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 1.5rem 1.5rem 0 0;
 }
 
-.service-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-2xl);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+.service-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+    color: #1a365d;
+}
+
+/* Hover Effects */
+.service-card-container:hover .service-card-front,
+.service-card-container:hover .service-card-back {
+    box-shadow: 
+        0 20px 40px -12px rgba(0, 0, 0, 0.18),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.service-card-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Front Card Content */
+.service-card-front {
+    justify-content: space-between;
+}
+
+.service-card-front h3 {
+    color: #1a365d;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.service-card-front p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Back Card Content */
+.service-card-back {
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.service-card-back h3 {
+    color: #1a365d;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.service-description {
+    color: #475569;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-style: italic;
+    padding: 0 0.5rem;
+}
+
+.service-details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.service-details li {
+    color: #475569;
+    font-size: 0.85rem;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.4;
+}
+
+.service-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #e11d48;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Clean flip card button styling */
+.service-card-container .quote-btn {
+    background: linear-gradient(135deg, #1a365d, #2d3748);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    margin: 16px 0 8px 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.025em;
+    width: 100%;
+    text-align: center;
+    display: block;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.service-card-container .quote-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.service-card-container .quote-btn:hover::before {
+    left: 100%;
+}
+
+.service-card-container .quote-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #e11d48, #f43f5e);
+}
+
+.service-card-container .quote-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Extra specificity to ensure consistent button styling */
+.service-card-back .quote-btn {
+    background: linear-gradient(135deg, #1a365d, #2d3748) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    font-family: inherit !important;
+    transition: all 0.2s ease !important;
+    margin: 16px 0 8px 0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    letter-spacing: 0.025em !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+}
+
+/* Flip Hints */
+.flip-hint {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: auto;
+    font-style: italic;
+    padding-top: 1rem;
+}
+
+.flip-back-hint {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 0.5rem;
+    font-style: italic;
 }
 
 .service-icon {
     font-size: 2rem;
     margin-bottom: 1rem;
+}
+
+/* Service image in flip cards */
+.service-card-front .service-image {
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #f8fafc;
+}
+
+.service-card-front .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
 }
 
 .service-card h3 {
@@ -1166,6 +1388,31 @@ footer {
     .modal-content {
         margin: 10% auto;
         padding: 1.5rem;
+    }
+
+    /* Mobile flip card adjustments */
+    .service-card-container {
+        height: 480px;
+    }
+
+    .service-card-front,
+    .service-card-back {
+        padding: 1.5rem;
+    }
+
+    .service-card-front h3,
+    .service-card-back h3 {
+        font-size: 1.2rem;
+    }
+
+    .service-details li {
+        font-size: 0.9rem;
+        padding: 0.4rem 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 

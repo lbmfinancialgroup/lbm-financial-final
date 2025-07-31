@@ -208,6 +208,11 @@ Service: ${data.service}
     }
 });
 
+// Service card flip functionality
+function flipCard(cardContainer) {
+    cardContainer.classList.toggle('flipped');
+}
+
 // Intersection Observer for animations (optional enhancement)
 const observerOptions = {
     threshold: 0.1,
@@ -225,7 +230,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function () {
-    const animateElements = document.querySelectorAll('.service-main, .service-card, .credential-item');
+    const animateElements = document.querySelectorAll('.service-main, .service-card-container, .credential-item');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';

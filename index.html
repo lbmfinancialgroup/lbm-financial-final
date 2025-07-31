@@ -90,52 +90,158 @@
             <div class="container">
                 <h2>Our Services</h2>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/Financial Operations-image.png" alt="Financial & Operations Management">
+                    <div class="service-card-container" onclick="flipCard(this)">
+                        <div class="service-card">
+                            <!-- Front of card -->
+                            <div class="service-card-front">
+                                <div class="service-image">
+                                    <img src="images/Financial Operations-image.png"
+                                        alt="Financial & Operations Management">
+                                </div>
+                                <h3>Financial & Operations Management</h3>
+                                <p>Bookkeeping, reporting, and back-end support for law firms and small businesses.</p>
+                                <div class="flip-hint">Click to learn more</div>
+                            </div>
+                            <!-- Back of card -->
+                            <div class="service-card-back">
+                                <h3>What We Offer</h3>
+                                <p class="service-description">Reliable back-office support, from bookkeeping to
+                                    reporting and internal controls.</p>
+                                <ul class="service-details">
+                                    <li>Full-charge bookkeeping (daily, weekly, monthly)</li>
+                                    <li>Monthly close and financial reporting</li>
+                                    <li>Budgeting and variance analysis</li>
+                                    <li>KPI dashboards and performance tracking</li>
+                                    <li>Back-end business operations support</li>
+                                </ul>
+                                <button class="quote-btn"
+                                    onclick="event.stopPropagation(); showQuoteForm('Financial & Operations Management')">Get
+                                    a Quote Now</button>
+                                <div class="flip-back-hint">Click to go back</div>
+                            </div>
                         </div>
-                        <h3>Financial & Operations Management</h3>
-                        <p>Bookkeeping, reporting, and back-end support for law firms and small businesses.</p>
-                        <button class="quote-btn" onclick="showQuoteForm('Financial & Operations Management')">Get a
-                            Quote Now</button>
                     </div>
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/Business Consulting-image.png" alt="Business Consulting">
+                    <div class="service-card-container" onclick="flipCard(this)">
+                        <div class="service-card">
+                            <!-- Front of card -->
+                            <div class="service-card-front">
+                                <div class="service-image">
+                                    <img src="images/Business Consulting-image.png" alt="Business Consulting">
+                                </div>
+                                <h3>Business Consulting</h3>
+                                <p>Strategy, forecasting, and financial planning built around each client's goals.</p>
+                                <div class="flip-hint">Click to learn more</div>
+                            </div>
+                            <!-- Back of card -->
+                            <div class="service-card-back">
+                                <h3>Our Expertise</h3>
+                                <p class="service-description">Custom advisory for structure, strategy, and scalable
+                                    growth.</p>
+                                <ul class="service-details">
+                                    <li>Strategic financial planning</li>
+                                    <li>Cash flow modeling and projections</li>
+                                    <li>Pricing strategy and profitability analysis</li>
+                                    <li>Business formation and structuring (LLC, S-Corp, etc.)</li>
+                                    <li>Financial health assessments (readiness for investment, scale, or exit)</li>
+                                </ul>
+                                <button class="quote-btn"
+                                    onclick="event.stopPropagation(); showQuoteForm('Business Consulting')">Get a Quote
+                                    Now</button>
+                                <div class="flip-back-hint">Click to go back</div>
+                            </div>
                         </div>
-                        <h3>Business Consulting</h3>
-                        <p>Strategy, forecasting, and financial planning built around each client's goals.</p>
-                        <button class="quote-btn" onclick="showQuoteForm('Business Consulting')">Get a Quote
-                            Now</button>
                     </div>
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/Treasury management-image.png" alt="Treasury Management">
+                    <div class="service-card-container" onclick="flipCard(this)">
+                        <div class="service-card">
+                            <!-- Front of card -->
+                            <div class="service-card-front">
+                                <div class="service-image">
+                                    <img src="images/Treasury management-image.png" alt="Treasury Management">
+                                </div>
+                                <h3>Treasury Management</h3>
+                                <p>Cash flow, large account oversight, internal controls, and vendor/payee
+                                    disbursements.</p>
+                                <div class="flip-hint">Click to learn more</div>
+                            </div>
+                            <!-- Back of card -->
+                            <div class="service-card-back">
+                                <h3>Treasury Services</h3>
+                                <p class="service-description">End-to-end cash management and internal control services.
+                                </p>
+                                <ul class="service-details">
+                                    <li>Accounts payable (bill processing, vendor payment scheduling)</li>
+                                    <li>Accounts receivable (invoicing, collections tracking)</li>
+                                    <li>Bank account setup and relationship support</li>
+                                    <li>Fraud prevention controls</li>
+                                    <li>Treasury policy development and cash reserve planning</li>
+                                </ul>
+                                <button class="quote-btn"
+                                    onclick="event.stopPropagation(); showQuoteForm('Treasury Management')">Get a Quote
+                                    Now</button>
+                                <div class="flip-back-hint">Click to go back</div>
+                            </div>
                         </div>
-                        <h3>Treasury Management</h3>
-                        <p>Cash flow, large account oversight, internal controls, and vendor/payee disbursements.</p>
-                        <button class="quote-btn" onclick="showQuoteForm('Treasury Management')">Get a Quote
-                            Now</button>
                     </div>
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/Tax pre & compliance-image.png" alt="Tax Prep & Compliance">
+                    <div class="service-card-container" onclick="flipCard(this)">
+                        <div class="service-card">
+                            <!-- Front of card -->
+                            <div class="service-card-front">
+                                <div class="service-image">
+                                    <img src="images/Tax pre & compliance-image.png" alt="Tax Prep & Compliance">
+                                </div>
+                                <h3>Tax Prep & Compliance</h3>
+                                <p>Tax filing and compliance services for individuals and businesses.</p>
+                                <div class="flip-hint">Click to learn more</div>
+                            </div>
+                            <!-- Back of card -->
+                            <div class="service-card-back">
+                                <h3>Tax Services</h3>
+                                <p class="service-description">Federal and state tax prep with year-end, estimated, and
+                                    filing support.</p>
+                                <ul class="service-details">
+                                    <li>Individual and business tax preparation (Federal + State)</li>
+                                    <li>Year-end filing support</li>
+                                    <li>1099 and W-2 prep</li>
+                                    <li>Quarterly estimated payments</li>
+                                </ul>
+                                <button class="quote-btn"
+                                    onclick="event.stopPropagation(); showQuoteForm('Tax Prep & Compliance')">Get a
+                                    Quote Now</button>
+                                <div class="flip-back-hint">Click to go back</div>
+                            </div>
                         </div>
-                        <h3>Tax Prep & Compliance</h3>
-                        <p>Tax filing and compliance services for individuals and businesses.</p>
-                        <button class="quote-btn" onclick="showQuoteForm('Tax Prep & Compliance')">Get a Quote
-                            Now</button>
                     </div>
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/Class Action & Settlement Consulting-image.png"
-                                alt="Class Action & Settlement Consulting">
+                    <div class="service-card-container" onclick="flipCard(this)">
+                        <div class="service-card">
+                            <!-- Front of card -->
+                            <div class="service-card-front">
+                                <div class="service-image">
+                                    <img src="images/Class Action & Settlement Consulting-image.png"
+                                        alt="Class Action & Settlement Consulting">
+                                </div>
+                                <h3>Class Action & Settlement Consulting</h3>
+                                <p>Expert disbursement and tracking services for legal settlements, with regulatory
+                                    compliance.</p>
+                                <div class="flip-hint">Click to learn more</div>
+                            </div>
+                            <!-- Back of card -->
+                            <div class="service-card-back">
+                                <h3>Settlement Services</h3>
+                                <p class="service-description">Disbursement, compliance, and trust fund services for
+                                    complex settlements.</p>
+                                <ul class="service-details">
+                                    <li>Qualified settlement fund (QSF) accounting</li>
+                                    <li>Claim disbursement tracking and reconciliation</li>
+                                    <li>Escrow and banking setup for legal settlements</li>
+                                    <li>Secure vendor and claimant payments</li>
+                                    <li>Regulatory compliance (FTC, SEC, CFPB, court mandates)</li>
+                                </ul>
+                                <button class="quote-btn"
+                                    onclick="event.stopPropagation(); showQuoteForm('Class Action & Settlement Consulting')">Get
+                                    a Quote Now</button>
+                                <div class="flip-back-hint">Click to go back</div>
+                            </div>
                         </div>
-                        <h3>Class Action & Settlement Consulting</h3>
-                        <p>Expert disbursement and tracking services for legal settlements, with regulatory compliance.
-                        </p>
-                        <button class="quote-btn" onclick="showQuoteForm('Class Action & Settlement Consulting')">Get a
-                            Quote Now</button>
                     </div>
                 </div>
             </div>

@@ -32,9 +32,9 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: none;
+    margin: 0;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,6 +94,10 @@ body {
     color: #e11d48;
 }
 
+.navbar.scrolled .hamburger span {
+    background: #333;
+}
+
 .navbar.scrolled {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -109,9 +113,10 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #333;
+    background: white;
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
 }
 
 /* Hero Section */
@@ -801,17 +806,31 @@ footer {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.15);
         padding: 2rem 0;
+        border-top: 3px solid #e11d48;
     }
 
     .nav-menu.active {
         left: 0;
     }
 
-    .nav-link {
+    .nav-menu .nav-link {
         padding: 1rem;
         display: block;
+        color: #1a365d;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(26, 54, 93, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu .nav-link:hover {
+        background-color: rgba(225, 29, 72, 0.1);
+        color: #e11d48;
+    }
+
+    .nav-menu .nav-link:last-child {
+        border-bottom: none;
     }
 
     .hero-content h1 {

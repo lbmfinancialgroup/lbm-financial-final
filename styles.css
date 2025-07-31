@@ -1,0 +1,1515 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.heart-icon {
+    color: #e11d48;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3b82f6;
+}
+
+/* Navbar when scrolled past hero */
+.navbar.scrolled .logo-text {
+    color: #333;
+}
+
+.navbar.scrolled .nav-link {
+    color: #333;
+}
+
+.navbar.scrolled .nav-link:hover {
+    color: #e11d48;
+}
+
+.navbar.scrolled .heart-icon {
+    color: #e11d48;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    padding: 120px 0 80px;
+    background: url('images/hero-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    min-height: 85vh;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25));
+    z-index: 1;
+}
+
+
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: none;
+}
+
+.cta-button.primary {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.primary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image-placeholder {
+    background: #f7fafc;
+    border: 2px dashed #cbd5e0;
+    border-radius: 8px;
+    padding: 60px 20px;
+    color: #718096;
+    font-style: italic;
+}
+
+/* Main Services Section */
+.main-services {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.services-grid-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.service-main {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-main:hover {
+    transform: translateY(-5px);
+}
+
+.service-image {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: #f7fafc;
+}
+
+.service-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Fallback for missing images */
+.service-image img[src="service-financial.jpg"],
+.service-image img[src="service-consulting.jpg"],
+.service-image img[src="service-community.jpg"] {
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-image img[src="service-financial.jpg"]::before {
+    content: "📊 Financial Operations";
+    font-size: 1.2rem;
+    color: #4a5568;
+}
+
+.service-image img[src="service-consulting.jpg"]::before {
+    content: "💼 Business Consulting";
+    font-size: 1.2rem;
+    color: #4a5568;
+}
+
+.service-image img[src="service-community.jpg"]::before {
+    content: "🤝 Community Support";
+    font-size: 1.2rem;
+    color: #4a5568;
+}
+
+.service-image-placeholder {
+    height: 200px;
+    background: #f7fafc;
+    border: 2px dashed #cbd5e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #718096;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.service-main h3 {
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+}
+
+.service-main p {
+    color: #666;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+    line-height: 1.6;
+}
+
+.quote-btn {
+    background: transparent;
+    color: #1a365d;
+    border: 2px solid #1a365d;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0 2rem 2rem 2rem;
+}
+
+.quote-btn:hover {
+    background: #1a365d;
+    color: white;
+}
+
+/* Mission Section */
+.mission {
+    padding: 80px 0;
+    text-align: center;
+    background: white;
+}
+
+.mission h2 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.mission p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* About Section (Why Choose Us) */
+.about {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 4rem;
+    align-items: center;
+}
+
+.community-mission {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.community-mission p {
+    font-size: 1.2rem;
+    color: #1a365d;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.credential-item {
+    padding: 0;
+    border: none;
+}
+
+.credential-item h4 {
+    font-size: 1.3rem;
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.credential-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.why-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.professional-headshot {
+    width: 320px;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    border: none;
+    background: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professional-headshot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.professional-headshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 16px;
+    border: none;
+}
+
+/* Quote Section */
+.quote-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.quote-section h2 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 300;
+}
+
+.quote-form-inline {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #1a365d;
+}
+
+.quote-submit-btn {
+    width: 100%;
+    background: #1a365d;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.quote-submit-btn:hover {
+    background: #2d3748;
+}
+
+/* Services Section (Detailed) */
+.services {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a365d;
+    font-weight: 300;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    color: #1a365d;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Nonprofit Section */
+.nonprofit {
+    padding: 80px 0;
+    background: white;
+}
+
+.nonprofit h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a365d;
+    font-weight: 300;
+}
+
+.nonprofit-content {
+    text-align: center;
+}
+
+.nonprofit-content>p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nonprofit-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.nonprofit-image-placeholder {
+    height: 200px;
+    background: #f7fafc;
+    border: 2px dashed #cbd5e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #718096;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.nonprofit-mission h3 {
+    color: #1a365d;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.nonprofit-mission p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a365d;
+    font-weight: 300;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item h3 {
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.contact-item p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.contact-form-container h3 {
+    color: #1a365d;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #1a365d;
+}
+
+.submit-btn {
+    background: #1a365d;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #2d3748;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal h2 {
+    color: #1a365d;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+#quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#quote-form input,
+#quote-form select,
+#quote-form textarea {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+#quote-form input:focus,
+#quote-form select:focus,
+#quote-form textarea:focus {
+    outline: none;
+    border-color: #1a365d;
+}
+
+/* Footer */
+footer {
+    background: #1a365d;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-link {
+        padding: 1rem;
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .services-grid-main {
+        grid-template-columns: 1fr;
+    }
+
+    .why-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .nonprofit-images {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 0 60px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .main-services,
+    .mission,
+    .why-choose-us,
+    .quote-section,
+    .services,
+    .nonprofit,
+    .contact {
+        padding: 60px 0;
+    }
+
+    .service-main {
+        margin-bottom: 2rem;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        padding: 1.5rem;
+    }
+}
+
+/* Hero Image Overrides */
+.hero-image {
+    display: none;
+    /* Image is now background */
+}
+
+.hero-image-placeholder {
+    display: none;
+}
+
+/* Enhanced Mobile Responsiveness for Hero */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .cta-button {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
+
+/* S
+ervice Image Fallback Styling */
+.service-image-fallback {
+    height: 200px;
+    background: linear-gradient(135deg, #f7fafc, #e2e8f0);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.service-image-fallback:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon-large {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-image-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #4a5568;
+    text-align: center;
+}
+
+/* Nonprofit Visual Elements */
+.nonprofit-image-visual {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nonprofit-image-visual:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.nonprofit-image-visual h4 {
+    color: #1a365d;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.nonprofit-image-visual p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+/ * Enhanced Service Image Styling */ .service-image-fallback {
+    height: 200px;
+    background:
+        linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1)),
+        radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image-fallback::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+    z-index: 1;
+}
+
+.service-image-fallback:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.service-icon-large {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.service-image-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e40af;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Ser
+vice Card Image Styling */
+.service-card .service-image {
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.service-card .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.service-card .service-image img:hover {
+    transform: scale(1.05);
+}
+
+/ * Updated Service Card Image Styling */ .service-card .service-image {
+    height: 220px !important;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-card .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.service-card .service-image img:hover {
+    transform: scale(1.02);
+}
+
+/*
+ Community Mission Styling */
+.community-mission {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.community-mission p {
+    font-size: 1.2rem;
+    color: #1a365d;
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Community Focus Section Styling */
+.community-focus {
+    padding: 80px 0;
+    background: white;
+    text-align: center;
+}
+
+.community-focus h2 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.community-focus p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/*
+ Community Support Feature in Nonprofit Section */
+.community-support-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.community-support-image {
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.community-support-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+
+.community-support-content h3 {
+    color: #1a365d;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.community-support-content p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.community-support-content .quote-btn {
+    background: #1a365d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.community-support-content .quote-btn:hover {
+    background: #2d3748;
+}
+
+/* Mobile responsiveness for community support */
+@media (max-width: 768px) {
+    .community-support-feature {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .community-support-image {
+        height: 250px;
+    }
+}
+
+/ * Consistent Service Card Image Sizing */ .service-card .service-image {
+    height: 200px !important;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background: #f8fafc;
+}
+
+.service-card .service-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Nonprofit image styling */
+.nonprofit-image {
+    height: 150px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: #f8fafc;
+}
+
+.nonprofit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/ * Fixed Image Sizing - No Cutoff */ .service-card .service-image {
+    height: 240px !important;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background: #f8fafc !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.service-card .service-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.service-card .service-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Nonprofit Financial Literacy Image - Consistent Sizing */
+.nonprofit-image {
+    height: 240px !important;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: #f8fafc !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.nonprofit-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.nonprofit-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Stretch out the single nonprofit image */
+.nonprofit-images {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.nonprofit-image-visual {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+/* Enh
+anced Visual Design - Background Colors & Typography */
+
+/* Improved Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2d3748;
+    line-height: 1.7;
+}
+
+/* Section Background Variations */
+.mission {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+}
+
+.services {
+    background: #ffffff;
+}
+
+.nonprofit {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+}
+
+.why-choose-us {
+    background: #ffffff;
+}
+
+.contact {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+}
+
+/* Enhanced Service Cards */
+.service-card {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced Typography for Headings */
+h1,
+h2,
+h3 {
+    color: #1a365d;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+
+
+
+
+.community-support-feature {
+    background: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+/* Enhanced Why Choose Us Section */
+.credential-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.credential-item:last-child {
+    border-bottom: none;
+}
+
+/* Enhanced Contact Section */
+.contact-item {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.contact-form-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+/* Enhanced Button Styling */
+.quote-btn,
+.submit-btn {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(26, 54, 93, 0.2);
+    transition: all 0.3s ease;
+}
+
+.quote-btn:hover,
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 54, 93, 0.3);
+}
+
+/* Subtle Pattern Overlay for Sections */
+.mission::before,
+.nonprofit::before,
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(30, 64, 175, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.mission,
+.nonprofit,
+.contact {
+    position: relative;
+}
+
+/* Enhanced Text Colors */
+p {
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.service-card p {
+    color: #718096;
+}
+
+/* Professional Footer Enhancement */
+footer {
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Tea
+m Leader Image Styling */
+.professional-headshot {
+    width: 280px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f8fafc;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border: 3px solid #ffffff;
+    transition: all 0.3s ease;
+}
+
+.professional-headshot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.professional-headshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9px;
+    transition: transform 0.3s ease;
+}
+
+.professional-headshot img:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile responsiveness for team leader image */
+@media (max-width: 768px) {
+    .professional-headshot {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+/
+/* Mobile responsiveness for About section */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .professional-headshot {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}

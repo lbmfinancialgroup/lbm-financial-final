@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBM Financial Group - Professional Financial & Operations Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="heart-icon">♥</div>
+                    <span class="logo-text">LBM FINANCIAL GROUP</span>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#services" class="nav-link">SERVICES</a>
+                    <a href="#nonprofit" class="nav-link">NONPROFIT</a>
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Homepage Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Financial Solutions with Purpose</h1>
+                    <p>Empowering your business while giving back to the community through financial literacy and
+                        support.</p>
+                    <div class="hero-buttons">
+                        <button class="cta-button primary" onclick="showQuoteForm()">Get a Quote Now</button>
+                        <button class="cta-button secondary" onclick="scrollToSection('about')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Statement -->
+        <section class="mission">
+            <div class="container">
+                <h2>Financial Solutions with Purpose</h2>
+                <p>At LBM Financial Group, we believe access to smart financial guidance can change lives. That's why we
+                    blend business expertise with a community-driven mission by supporting growth for companies and
+                    recovery for people.</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/Financial Operations-image.png" alt="Financial & Operations Management">
+                        </div>
+                        <h3>Financial & Operations Management</h3>
+                        <p>Bookkeeping, reporting, and back-end support for law firms and small businesses.</p>
+                        <button class="quote-btn" onclick="showQuoteForm('Financial & Operations Management')">Get a
+                            Quote Now</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/Business Consulting-image.png" alt="Business Consulting">
+                        </div>
+                        <h3>Business Consulting</h3>
+                        <p>Strategy, forecasting, and financial planning built around each client's goals.</p>
+                        <button class="quote-btn" onclick="showQuoteForm('Business Consulting')">Get a Quote
+                            Now</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/Treasury management-image.png" alt="Treasury Management">
+                        </div>
+                        <h3>Treasury Management</h3>
+                        <p>Cash flow, large account oversight, internal controls, and vendor/payee disbursements.</p>
+                        <button class="quote-btn" onclick="showQuoteForm('Treasury Management')">Get a Quote
+                            Now</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/Tax pre & compliance-image.png" alt="Tax Prep & Compliance">
+                        </div>
+                        <h3>Tax Prep & Compliance</h3>
+                        <p>Tax filing and compliance services for individuals and businesses.</p>
+                        <button class="quote-btn" onclick="showQuoteForm('Tax Prep & Compliance')">Get a Quote
+                            Now</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/Class Action & Settlement Consulting-image.png"
+                                alt="Class Action & Settlement Consulting">
+                        </div>
+                        <h3>Class Action & Settlement Consulting</h3>
+                        <p>Expert disbursement and tracking services for legal settlements, with regulatory compliance.
+                        </p>
+                        <button class="quote-btn" onclick="showQuoteForm('Class Action & Settlement Consulting')">Get a
+                            Quote Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Support Section -->
+        <section id="nonprofit" class="nonprofit">
+            <div class="container">
+                <h2>Community Support</h2>
+                <div class="nonprofit-content">
+                    <div class="community-support-feature">
+                        <div class="community-support-image">
+                            <img src="images/community support-image.png"
+                                alt="Community Support - Volunteers helping families">
+                        </div>
+                        <div class="community-support-content">
+                            <h3>Supporting Recovery & Growth</h3>
+                            <p>We believe in giving back to our community by providing financial literacy programs and
+                                support services.</p>
+                        </div>
+                    </div>
+                    <div class="nonprofit-visual">
+                        <div class="nonprofit-image-visual">
+                            <div class="nonprofit-image">
+                                <img src="images/Financial Literacy.png" alt="Financial Literacy Workshop">
+                            </div>
+                            <h4>Financial Literacy</h4>
+                            <p>Educational workshops and resources to empower individuals with financial knowledge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="why-text">
+                        <h2>Why Choose Us</h2>
+                        <div class="community-mission">
+                            <p>At LBM Financial Group, we don't just manage numbers. We help people. Our mission is
+                                rooted in integrity, transparency, and impact. We're committed to helping businesses
+                                grow while giving back to the community.</p>
+                        </div>
+                        <div class="credentials">
+                            <div class="credential-item">
+                                <h4>Experienced Leadership</h4>
+                                <p>20+ years of financial and operational expertise across legal, corporate, and startup
+                                    sectors.</p>
+                            </div>
+                            <div class="credential-item">
+                                <h4>Tailored Solutions</h4>
+                                <p>Every business is different. We offer custom quotes and services that meet your
+                                    unique needs. There's no one-size-fits-all approach.</p>
+                            </div>
+                            <div class="credential-item">
+                                <h4>Business + Nonprofit Model</h4>
+                                <p>We reinvest 10% of every dollar earned to help provide food, supplies, and support
+                                    services for individuals in need. When you work with us, you're also helping someone
+                                    else.</p>
+                            </div>
+                            <div class="credential-item">
+                                <h4>Secure & Remote-Ready</h4>
+                                <p>Whether you're across the country or around the corner, we use secure digital tools
+                                    to keep your financials accurate, accessible, and protected.</p>
+                            </div>
+                            <div class="credential-item">
+                                <h4>Hands-On, Human Support</h4>
+                                <p>Personal attention and dedicated service for every client, ensuring you always have
+                                    direct access to expert guidance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-image">
+                        <div class="professional-headshot">
+                            <img src="images/Team Lead-image.png" alt="Team Leader - 20+ Years Experience">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>info@lbmfinancialgroup.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Phone</h3>
+                            <p>(555) 123-4567</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Address</h3>
+                            <p>123 Business Ave<br>Suite 100<br>City, State 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <h3>Send us a message</h3>
+                        <form class="contact-form">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <input type="tel" name="phone" placeholder="Your Phone">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quote Modal -->
+    <div id="quote-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeQuoteForm()">&times;</span>
+            <h2>Get a Quote</h2>
+            <form id="quote-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="business" placeholder="Business Name">
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Your Phone" required>
+                <select name="service" id="service-select" required>
+                    <option value="">Select a Service</option>
+                    <option value="Financial & Operations Management">Financial & Operations Management</option>
+                    <option value="Business Consulting">Business Consulting</option>
+                    <option value="Treasury Management">Treasury Management</option>
+                    <option value="Class Action & Settlement Consulting">Class Action & Settlement Consulting</option>
+                    <option value="Community Support">Community Support</option>
+                    <option value="Tax Prep & Compliance">Tax Prep & Compliance</option>
+                    <option value="Financial Literacy">Financial Literacy</option>
+                </select>
+                <textarea name="message" placeholder="Short Message" rows="4" required></textarea>
+                <button type="submit" class="submit-btn">Submit Quote Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LBM Financial Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -4,25 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LBM Financial Group provides professional financial and operations management services for law firms and small businesses. Expert bookkeeping, consulting, and treasury management with a community-focused mission.">
-    <meta name="keywords" content="financial services, bookkeeping, business consulting, treasury management, tax preparation, financial operations">
+    <meta name="description"
+        content="LBM Financial Group provides professional financial and operations management services for law firms and small businesses. Expert bookkeeping, consulting, and treasury management with a community-focused mission.">
+    <meta name="keywords"
+        content="financial services, bookkeeping, business consulting, treasury management, tax preparation, financial operations">
     <meta name="author" content="LBM Financial Group">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lbmfinancialgroup.com/">
     <meta property="og:title" content="LBM Financial Group - Professional Financial & Operations Management">
-    <meta property="og:description" content="Expert financial services with a community-focused mission. Helping businesses grow while giving back to the community.">
+    <meta property="og:description"
+        content="Expert financial services with a community-focused mission. Helping businesses grow while giving back to the community.">
     <meta property="og:image" content="logo.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://lbmfinancialgroup.com/">
     <meta property="twitter:title" content="LBM Financial Group - Professional Financial & Operations Management">
-    <meta property="twitter:description" content="Expert financial services with a community-focused mission. Helping businesses grow while giving back to the community.">
+    <meta property="twitter:description"
+        content="Expert financial services with a community-focused mission. Helping businesses grow while giving back to the community.">
     <meta property="twitter:image" content="logo.svg">
 
     <title>LBM Financial Group - Professional Financial & Operations Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preload" href="logo.svg" as="image">
 </head>
@@ -42,7 +49,8 @@
                     <a href="#nonprofit" class="nav-link" role="menuitem">NONPROFIT</a>
                     <a href="#contact" class="nav-link" role="menuitem">CONTACT</a>
                 </div>
-                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"
+                    aria-controls="nav-menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -165,9 +173,17 @@
         <!-- About Section -->
         <section id="about" class="about">
             <div class="container">
+                <h2 class="about-title">Why Choose Us</h2>
+
+                <!-- Mobile-first: Image at top -->
+                <div class="about-image-mobile">
+                    <div class="professional-headshot">
+                        <img src="images/Team Lead-image.png" alt="Team Leader - 20+ Years Experience">
+                    </div>
+                </div>
+
                 <div class="about-content">
                     <div class="why-text">
-                        <h2>Why Choose Us</h2>
                         <div class="community-mission">
                             <p>At LBM Financial Group, we don't just manage numbers. We help people. Our mission is
                                 rooted in integrity, transparency, and impact. We're committed to helping businesses
@@ -202,7 +218,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="why-image">
+
+                    <!-- Desktop: Image on the side -->
+                    <div class="why-image-desktop">
                         <div class="professional-headshot">
                             <img src="images/Team Lead-image.png" alt="Team Leader - 20+ Years Experience">
                         </div>
@@ -234,18 +252,22 @@
                         <h3>Send us a message</h3>
                         <form class="contact-form" role="form" aria-label="Contact form">
                             <label for="contact-name" class="sr-only">Your Name</label>
-                            <input type="text" id="contact-name" name="name" placeholder="Your Name" required aria-required="true">
-                            
+                            <input type="text" id="contact-name" name="name" placeholder="Your Name" required
+                                aria-required="true">
+
                             <label for="contact-email" class="sr-only">Your Email</label>
-                            <input type="email" id="contact-email" name="email" placeholder="Your Email" required aria-required="true">
-                            
+                            <input type="email" id="contact-email" name="email" placeholder="Your Email" required
+                                aria-required="true">
+
                             <label for="contact-phone" class="sr-only">Your Phone</label>
                             <input type="tel" id="contact-phone" name="phone" placeholder="Your Phone">
-                            
+
                             <label for="contact-message" class="sr-only">Your Message</label>
-                            <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required aria-required="true"></textarea>
-                            
-                            <button type="submit" class="submit-btn" aria-label="Send contact message">Send Message</button>
+                            <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required
+                                aria-required="true"></textarea>
+
+                            <button type="submit" class="submit-btn" aria-label="Send contact message">Send
+                                Message</button>
                         </form>
                     </div>
                 </div>
@@ -261,16 +283,17 @@
             <form id="quote-form" role="form" aria-label="Quote request form">
                 <label for="quote-name" class="sr-only">Your Name</label>
                 <input type="text" id="quote-name" name="name" placeholder="Your Name" required aria-required="true">
-                
+
                 <label for="quote-business" class="sr-only">Business Name</label>
                 <input type="text" id="quote-business" name="business" placeholder="Business Name">
-                
+
                 <label for="quote-email" class="sr-only">Your Email</label>
-                <input type="email" id="quote-email" name="email" placeholder="Your Email" required aria-required="true">
-                
+                <input type="email" id="quote-email" name="email" placeholder="Your Email" required
+                    aria-required="true">
+
                 <label for="quote-phone" class="sr-only">Your Phone</label>
                 <input type="tel" id="quote-phone" name="phone" placeholder="Your Phone" required aria-required="true">
-                
+
                 <label for="service-select" class="sr-only">Select a Service</label>
                 <select name="service" id="service-select" required aria-required="true">
                     <option value="">Select a Service</option>
@@ -282,10 +305,11 @@
                     <option value="Tax Prep & Compliance">Tax Prep & Compliance</option>
                     <option value="Financial Literacy">Financial Literacy</option>
                 </select>
-                
+
                 <label for="quote-message" class="sr-only">Short Message</label>
-                <textarea id="quote-message" name="message" placeholder="Short Message" rows="4" required aria-required="true"></textarea>
-                
+                <textarea id="quote-message" name="message" placeholder="Short Message" rows="4" required
+                    aria-required="true"></textarea>
+
                 <button type="submit" class="submit-btn" aria-label="Submit quote request">Submit Quote Request</button>
             </form>
         </div>

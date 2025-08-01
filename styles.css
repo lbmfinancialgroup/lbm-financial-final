@@ -533,13 +533,13 @@ body {
 .mission h2::after {
     content: '';
     position: absolute;
-    bottom: -var(--space-md);
+    bottom: -1rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
+    width: 80px;
+    height: 4px;
     background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-light));
-    border-radius: var(--radius-sm);
+    border-radius: 2px;
 }
 
 .mission p {
@@ -560,8 +560,22 @@ body {
     text-align: center;
     font-size: 2.5rem;
     color: var(--text-heading);
-    margin-bottom: 3rem;
-    font-weight: 300;
+    margin-bottom: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.about-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-light));
+    border-radius: 2px;
 }
 
 /* Mobile-first: Show mobile image, hide desktop image */
@@ -744,9 +758,23 @@ body {
 .services h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #1a365d;
-    font-weight: 300;
+    margin-bottom: 4rem;
+    color: var(--text-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.services h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-light));
+    border-radius: 2px;
 }
 
 .services-grid {
@@ -1030,9 +1058,23 @@ body {
 .nonprofit h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #1a365d;
-    font-weight: 300;
+    margin-bottom: 4rem;
+    color: var(--text-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.nonprofit h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-light));
+    border-radius: 2px;
 }
 
 .nonprofit-content {

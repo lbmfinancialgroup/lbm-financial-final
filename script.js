@@ -281,7 +281,7 @@ const lazyImageObserver = new IntersectionObserver((entries, observer) => {
         }
     });
 }, {
-    rootMargin: '50px 0px',
+    rootMargin: '200px 0px',
     threshold: 0.01
 });
 
@@ -381,16 +381,16 @@ const NetworkOptimizer = {
     prefetchSectionResources(sectionId) {
         const resourceMap = {
             'services': [
-                'images/Financial Operations-image.png',
-                'images/Business Consulting-image.png',
-                'images/Treasury management-image.png'
+                'images/Financial Operations-image.jpg',
+                'images/Business Consulting-image.jpg',
+                'images/Treasury management-image.jpg'
             ],
             'nonprofit': [
-                'images/community support-image.png',
-                'images/Financial Literacy.png'
+                'images/community support-image.jpg',
+                'images/Financial Literacy.jpg'
             ],
             'about': [
-                'images/Team Lead-image.png'
+                'images/Team Lead-image.jpg'
             ]
         };
 

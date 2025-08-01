@@ -213,13 +213,42 @@ function flipCard(cardContainer) {
     cardContainer.classList.toggle('flipped');
 }
 
+// Lazy loading implementation
+const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            img.classList.add('loading');
+            
+            // Create a new image to preload
+            const imageLoader = new Image();
+            imageLoader.onload = () => {
+                img.src = img.dataset.src;
+                img.classList.remove('loading');
+                img.classList.add('loaded');
+                img.removeAttribute('data-src');
+            };
+            imageLoader.onerror = () => {
+                img.classList.remove('loading');
+                console.warn('Failed to load image:', img.dataset.src);
+            };
+            imageLoader.src = img.dataset.src;
+            
+            observer.unobserve(img);
+        }
+    });
+}, {
+    rootMargin: '50px 0px',
+    threshold: 0.01
+});
+
 // Intersection Observer for animations (optional enhancement)
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const animationObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -228,13 +257,20 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
+// Initialize lazy loading and animations
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize lazy loading for images
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    lazyImages.forEach(img => {
+        lazyImageObserver.observe(img);
+    });
+
+    // Initialize animations
     const animateElements = document.querySelectorAll('.service-main, .service-card-container, .credential-item');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+        animationObserver.observe(el);
     });
 });

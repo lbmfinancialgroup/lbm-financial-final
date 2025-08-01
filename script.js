@@ -1,15 +1,38 @@
-// Mobile menu toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+// Performance-optimized DOM element caching
+const DOMCache = {
+    hamburger: null,
+    navMenu: null,
+    navbar: null,
+    heroSection: null,
+    modal: null,
+    
+    init() {
+        this.hamburger = document.getElementById('hamburger');
+        this.navMenu = document.getElementById('nav-menu');
+        this.navbar = document.querySelector('.navbar');
+        this.heroSection = document.querySelector('.hero');
+        this.modal = document.getElementById('quote-modal');
+    }
+};
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+// Initialize DOM cache when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    DOMCache.init();
+    
+    // Mobile menu toggle with cached elements
+    if (DOMCache.hamburger && DOMCache.navMenu) {
+        DOMCache.hamburger.addEventListener('click', () => {
+            DOMCache.navMenu.classList.toggle('active');
+        }, { passive: true });
+    }
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (DOMCache.navMenu) {
+                DOMCache.navMenu.classList.remove('active');
+            }
+        }, { passive: true });
     });
 });
 
@@ -61,50 +84,94 @@ function closeQuoteForm() {
     }
 }
 
-// Close modal when clicking outside of it
-window.addEventListener('click', function (event) {
+// Optimized modal event handlers
+let modalEventListenersAdded = false;
+
+function addModalEventListeners() {
+    if (modalEventListenersAdded) return;
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function (event) {
+        const modal = document.getElementById('quote-modal');
+        if (event.target === modal) {
+            closeQuoteForm();
+        }
+    }, { passive: true });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeQuoteForm();
+        }
+    }, { passive: true });
+    
+    modalEventListenersAdded = true;
+}
+
+// Add modal listeners only when needed
+function showQuoteForm(service = '') {
     const modal = document.getElementById('quote-modal');
-    if (event.target === modal) {
-        closeQuoteForm();
+    const serviceSelect = document.getElementById('service-select');
+
+    if (service && serviceSelect) {
+        serviceSelect.value = service;
     }
-});
 
-// Close modal with Escape key
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-        closeQuoteForm();
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        addModalEventListeners(); // Add listeners only when modal is first opened
     }
-});
+}
 
-// Add scroll effect to navbar
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const heroSection = document.querySelector('.hero');
-    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+// Debounce utility for performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
 
+// Throttle utility for scroll events
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Optimized scroll handler with cached elements
+const handleScroll = throttle(() => {
+    if (!DOMCache.navbar || !DOMCache.heroSection) return;
+    
+    const heroHeight = DOMCache.heroSection.offsetHeight;
+    
     if (window.scrollY < heroHeight - 100) {
-        // Over hero section - transparent navbar
-        navbar.classList.remove('scrolled');
+        DOMCache.navbar.classList.remove('scrolled');
     } else {
-        // Past hero section - solid navbar
-        navbar.classList.add('scrolled');
+        DOMCache.navbar.classList.add('scrolled');
     }
-});
+}, 16); // ~60fps
 
-// Form submission handling
-document.addEventListener('DOMContentLoaded', function () {
-    // Handle quote form submission
-    const quoteForm = document.getElementById('quote-form');
-    if (quoteForm) {
-        quoteForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+// Add scroll effect to navbar with passive listener
+window.addEventListener('scroll', handleScroll, { passive: true });
 
-            // Get form data
-            const formData = new FormData(quoteForm);
-            const data = Object.fromEntries(formData);
-
-            // Create email body
-            const emailBody = `
+// Optimized form handling utilities
+const FormHandler = {
+    createEmailBody(data, type) {
+        if (type === 'quote') {
+            return `
 Quote Request from ${data.name}
 
 Name: ${data.name}
@@ -114,31 +181,8 @@ Phone: ${data.phone}
 Service: ${data.service}
 Message: ${data.message}
             `.trim();
-
-            // Create mailto link
-            const mailtoLink = `mailto:info@lbmfinancialgroup.com?subject=Quote Request from ${data.name}&body=${encodeURIComponent(emailBody)}`;
-
-            // Open email client
-            window.location.href = mailtoLink;
-
-            // Close modal and show confirmation
-            closeQuoteForm();
-            alert('Thank you for your quote request! Your email client should open with the pre-filled message.');
-        });
-    }
-
-    // Handle contact form submission
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-
-            // Create email body
-            const emailBody = `
+        } else {
+            return `
 Contact Form Submission
 
 Name: ${data.name}
@@ -146,67 +190,69 @@ Email: ${data.email}
 Phone: ${data.phone || 'Not provided'}
 Message: ${data.message}
             `.trim();
+        }
+    },
 
-            // Create mailto link
-            const mailtoLink = `mailto:info@lbmfinancialgroup.com?subject=Contact Form from ${data.name}&body=${encodeURIComponent(emailBody)}`;
-
-            // Open email client
-            window.location.href = mailtoLink;
-
-            // Show confirmation
-            alert('Thank you for your message! Your email client should open with the pre-filled message.');
-        });
+    sendEmail(data, type) {
+        const emailBody = this.createEmailBody(data, type);
+        const subject = type === 'quote' ? `Quote Request from ${data.name}` : `Contact Form from ${data.name}`;
+        const mailtoLink = `mailto:info@lbmfinancialgroup.com?subject=${subject}&body=${encodeURIComponent(emailBody)}`;
+        
+        window.location.href = mailtoLink;
+        
+        if (type === 'quote') {
+            closeQuoteForm();
+        }
+        
+        alert(`Thank you for your ${type === 'quote' ? 'quote request' : 'message'}! Your email client should open with the pre-filled message.`);
     }
+};
 
-    // Handle inline quote form
-    const inlineQuoteBtn = document.querySelector('.quote-submit-btn');
-    if (inlineQuoteBtn) {
-        inlineQuoteBtn.addEventListener('click', function (e) {
-            e.preventDefault();
+// Event delegation for form handling
+document.addEventListener('submit', function(e) {
+    const form = e.target;
+    
+    if (form.id === 'quote-form') {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        FormHandler.sendEmail(data, 'quote');
+    } else if (form.classList.contains('contact-form')) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        FormHandler.sendEmail(data, 'contact');
+    }
+}, { passive: false });
 
-            // Get inline form data
-            const formInputs = document.querySelectorAll('.quote-form-inline .form-input');
-            const data = {};
+// Handle inline quote button with event delegation
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('quote-submit-btn')) {
+        e.preventDefault();
+        
+        const formInputs = document.querySelectorAll('.quote-form-inline .form-input');
+        const data = {};
 
-            formInputs.forEach(input => {
-                if (input.type === 'text' && input.placeholder === 'Name') {
-                    data.name = input.value;
-                } else if (input.type === 'email') {
-                    data.email = input.value;
-                } else if (input.type === 'tel') {
-                    data.phone = input.value;
-                } else if (input.tagName === 'SELECT') {
-                    data.service = input.value;
-                }
-            });
-
-            // Validate required fields
-            if (!data.name || !data.email || !data.service) {
-                alert('Please fill in all required fields.');
-                return;
+        formInputs.forEach(input => {
+            if (input.type === 'text' && input.placeholder === 'Name') {
+                data.name = input.value;
+            } else if (input.type === 'email') {
+                data.email = input.value;
+            } else if (input.type === 'tel') {
+                data.phone = input.value;
+            } else if (input.tagName === 'SELECT') {
+                data.service = input.value;
             }
-
-            // Create email body
-            const emailBody = `
-Quote Request from ${data.name}
-
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone || 'Not provided'}
-Service: ${data.service}
-            `.trim();
-
-            // Create mailto link
-            const mailtoLink = `mailto:info@lbmfinancialgroup.com?subject=Quote Request from ${data.name}&body=${encodeURIComponent(emailBody)}`;
-
-            // Open email client
-            window.location.href = mailtoLink;
-
-            // Show confirmation
-            alert('Thank you for your quote request! Your email client should open with the pre-filled message.');
         });
+
+        if (!data.name || !data.email || !data.service) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        FormHandler.sendEmail(data, 'quote');
     }
-});
+}, { passive: false });
 
 // Service card flip functionality
 function flipCard(cardContainer) {
@@ -309,27 +355,75 @@ function loadCSS(href, before, media) {
     return ss;
 }
 
-// Font loading optimization
+// Font loading optimization with performance monitoring
 if ('fonts' in document) {
+    const fontLoadStart = performance.now();
     document.fonts.ready.then(() => {
         document.body.classList.add('fonts-loaded');
+        const fontLoadTime = performance.now() - fontLoadStart;
+        console.log(`Fonts loaded in ${fontLoadTime.toFixed(2)}ms`);
     });
 }
 
-// Initialize lazy loading and animations
-document.addEventListener('DOMContentLoaded', function () {
+// Performance monitoring utilities
+const PerformanceMonitor = {
+    measureFunction(fn, name) {
+        return function(...args) {
+            const start = performance.now();
+            const result = fn.apply(this, args);
+            const end = performance.now();
+            console.log(`${name} took ${(end - start).toFixed(2)}ms`);
+            return result;
+        };
+    },
+
+    logPageLoadMetrics() {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const navigation = performance.getEntriesByType('navigation')[0];
+                console.log('Page Load Metrics:', {
+                    'DOM Content Loaded': `${navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart}ms`,
+                    'Load Complete': `${navigation.loadEventEnd - navigation.loadEventStart}ms`,
+                    'Total Load Time': `${navigation.loadEventEnd - navigation.fetchStart}ms`
+                });
+            }, 0);
+        });
+    }
+};
+
+// Initialize performance monitoring in development
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    PerformanceMonitor.logPageLoadMetrics();
+}
+
+// Performance-optimized initialization
+function initializePerformanceFeatures() {
     // Initialize lazy loading for images
     const lazyImages = document.querySelectorAll('.lazy-load');
-    lazyImages.forEach(img => {
-        lazyImageObserver.observe(img);
-    });
+    if (lazyImages.length > 0) {
+        lazyImages.forEach(img => {
+            lazyImageObserver.observe(img);
+        });
+    }
 
-    // Initialize animations
+    // Initialize animations with requestAnimationFrame for better performance
     const animateElements = document.querySelectorAll('.service-main, .service-card-container, .credential-item');
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        animationObserver.observe(el);
-    });
-});
+    if (animateElements.length > 0) {
+        requestAnimationFrame(() => {
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                animationObserver.observe(el);
+            });
+        });
+    }
+}
+
+// Use more efficient event listener
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePerformanceFeatures);
+} else {
+    // DOM is already loaded
+    initializePerformanceFeatures();
+}

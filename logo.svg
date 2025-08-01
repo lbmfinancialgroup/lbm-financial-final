@@ -1,14 +1,13 @@
-<svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background circle for the heart -->
-  <circle cx="20" cy="20" r="16" fill="#1a365d" opacity="0.1"/>
+<svg width="300" height="60" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern geometric accent - taller bars -->
+  <rect x="0" y="22" width="10" height="16" fill="#e11d48" rx="2"/>
+  <rect x="14" y="18" width="10" height="24" fill="#1a365d" rx="2"/>
+  <rect x="28" y="14" width="10" height="32" fill="#e11d48" rx="2"/>
   
-  <!-- Heart icon -->
-  <path d="M20 28c-1.5-1.2-6-4.8-6-8.5 0-2.5 2-4.5 4.5-4.5 1.5 0 2.8 0.7 3.5 1.8 0.7-1.1 2-1.8 3.5-1.8 2.5 0 4.5 2 4.5 4.5 0 3.7-4.5 7.3-6 8.5z" fill="#e11d48"/>
+  <!-- Company name - larger and more prominent -->
+  <text x="50" y="28" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="800" fill="#1a365d" letter-spacing="2px">LBM</text>
+  <text x="50" y="44" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="#475569" letter-spacing="1px">FINANCIAL GROUP</text>
   
-  <!-- Company name -->
-  <text x="45" y="16" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1a365d" letter-spacing="1px">LBM</text>
-  <text x="45" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="500" fill="#666" letter-spacing="0.5px">FINANCIAL GROUP</text>
-  
-  <!-- Subtle accent line -->
-  <line x1="45" y1="18" x2="140" y2="18" stroke="#e11d48" stroke-width="1" opacity="0.3"/>
+  <!-- Enhanced accent line -->
+  <line x1="50" y1="32" x2="240" y2="32" stroke="#e11d48" stroke-width="2" opacity="0.4"/>
 </svg>

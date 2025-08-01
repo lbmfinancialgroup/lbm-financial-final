@@ -32,14 +32,14 @@
     --primary-200: #e2e8f0;
     --primary-100: #f1f5f9;
     --primary-50: #f8fafc;
-    
+
     /* Brand Colors */
     --brand-primary: #1a365d;
     --brand-secondary: #2d3748;
-    --brand-accent: #e11d48;
-    --brand-accent-light: #f43f5e;
+    --brand-accent: #3b82f6;
+    --brand-accent-light: #60a5fa;
     --brand-blue-light: #3b82f6;
-    
+
     /* Semantic Colors */
     --text-primary: #0f172a;
     --text-secondary: #475569;
@@ -47,33 +47,33 @@
     --text-light: #94a3b8;
     --text-body: #475569;
     --text-heading: #1a365d;
-    
+
     /* Background Colors */
     --bg-primary: #ffffff;
     --bg-secondary: #f8fafc;
     --bg-tertiary: #f1f5f9;
     --bg-accent: #fef2f2;
     --bg-card: rgba(255, 255, 255, 0.9);
-    
+
     /* Border Colors */
     --border-light: rgba(255, 255, 255, 0.2);
     --border-subtle: rgba(226, 232, 240, 0.6);
     --border-muted: #e2e8f0;
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    
+
     /* Border Radius */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     --radius-2xl: 1.5rem;
-    
+
     /* Spacing */
     --space-xs: 0.5rem;
     --space-sm: 0.75rem;
@@ -83,7 +83,7 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
     --space-4xl: 6rem;
-    
+
     /* Typography */
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
@@ -95,7 +95,7 @@
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
     --font-size-6xl: 3.75rem;
-    
+
     /* Line Heights */
     --leading-tight: 1.25;
     --leading-snug: 1.375;
@@ -815,7 +815,7 @@ body {
     -webkit-backdrop-filter: blur(20px);
     padding: 2rem;
     border-radius: 1.5rem;
-    box-shadow: 
+    box-shadow:
         0 8px 25px -8px rgba(0, 0, 0, 0.12),
         0 0 0 1px rgba(255, 255, 255, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -847,7 +847,7 @@ body {
 /* Hover Effects */
 .service-card-container:hover .service-card-front,
 .service-card-container:hover .service-card-back {
-    box-shadow: 
+    box-shadow:
         0 20px 40px -12px rgba(0, 0, 0, 0.18),
         0 0 0 1px rgba(255, 255, 255, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);

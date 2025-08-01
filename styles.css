@@ -18,18 +18,79 @@
     border: 0;
 }
 
-/* Lazy loading styles */
+/* Aspect ratio containers to prevent layout shift */
+.aspect-ratio-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+.aspect-ratio-16-9 {
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+}
+
+.aspect-ratio-4-3 {
+    padding-bottom: 75%;
+    /* 4:3 aspect ratio */
+}
+
+.aspect-ratio-1-1 {
+    padding-bottom: 100%;
+    /* 1:1 aspect ratio */
+}
+
+.aspect-ratio-container img,
+.aspect-ratio-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Skeleton loading animation */
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+/* Lazy loading styles with layout stability */
 .lazy-load {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    /* Prevent layout shift during loading */
+    min-height: 200px;
+    background: #f8fafc;
+    display: block;
+    position: relative;
+}
+
+.lazy-load.loading {
+    opacity: 1;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
 }
 
 .lazy-load.loaded {
     opacity: 1;
-}
-
-.lazy-load.loading {
-    opacity: 0.5;
+    min-height: auto;
+    background: transparent;
+    animation: none;
 }
 
 /* Fallback for no JavaScript */
@@ -50,6 +111,53 @@ body {
 @font-face {
     font-family: 'Inter';
     font-display: swap;
+}
+
+/* Performance-optimized animations */
+.gpu-accelerated {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Content visibility for better rendering performance */
+.content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
+
+/* Optimize off-screen sections */
+.services,
+.nonprofit,
+.about,
+.contact {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
+}
+
+/* Optimize transitions for 60fps performance */
+.smooth-transition {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.2s;
+}
+
+.smooth-transform {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Slow connection optimizations */
@@ -220,6 +328,9 @@ body {
     box-shadow: var(--shadow-sm);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* Optimize backdrop filter performance */
+    will-change: backdrop-filter;
+    contain: layout style paint;
 }
 
 .nav-container {
@@ -496,6 +607,12 @@ body {
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 1.5rem;
+    /* Prevent layout shift */
+    position: relative;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-image img {
@@ -906,6 +1023,10 @@ body {
     perspective: 1000px;
     height: 520px;
     cursor: pointer;
+    /* Optimize for GPU acceleration */
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* Responsive service card heights */
@@ -926,8 +1047,11 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
+    /* Optimize for smooth animations */
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .service-card-container.flipped .service-card {

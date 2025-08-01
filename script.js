@@ -486,10 +486,25 @@ const PerformanceMonitor = {
             entries.forEach(entry => {
                 if (!entry.hadRecentInput) {
                     clsValue += entry.value;
+                    console.log('Layout shift detected:', {
+                        value: entry.value.toFixed(4),
+                        sources: entry.sources?.map(s => s.node?.tagName || 'unknown')
+                    });
                 }
             });
-            console.log('CLS:', clsValue.toFixed(4));
+            console.log('Total CLS:', clsValue.toFixed(4));
         }).observe({ entryTypes: ['layout-shift'] });
+
+        // Long Task monitoring
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            entries.forEach(entry => {
+                console.log('Long task detected:', {
+                    duration: entry.duration.toFixed(2) + 'ms',
+                    startTime: entry.startTime.toFixed(2) + 'ms'
+                });
+            });
+        }).observe({ entryTypes: ['longtask'] });
     }
 };
 
@@ -518,6 +533,8 @@ function initializePerformanceFeatures() {
     if (animateElements.length > 0) {
         requestAnimationFrame(() => {
             animateElements.forEach(el => {
+                // Add GPU acceleration classes
+                el.classList.add('gpu-accelerated');
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -525,6 +542,21 @@ function initializePerformanceFeatures() {
             });
         });
     }
+
+    // Optimize service cards for better performance
+    const serviceCards = document.querySelectorAll('.service-card-container');
+    serviceCards.forEach(card => {
+        card.classList.add('gpu-accelerated');
+        
+        // Add passive event listeners for better scroll performance
+        card.addEventListener('mouseenter', () => {
+            card.style.willChange = 'transform';
+        }, { passive: true });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.willChange = 'auto';
+        }, { passive: true });
+    });
 }
 
 // Use more efficient event listener

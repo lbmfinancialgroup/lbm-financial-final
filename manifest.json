@@ -3,21 +3,14 @@
     "short_name": "LBM Financial",
     "description": "Professional financial and operations management services for law firms and small businesses",
     "start_url": "/",
-    "display": "standalone",
+    "display": "browser",
     "background_color": "#ffffff",
     "theme_color": "#1a365d",
-    "orientation": "portrait-primary",
     "icons": [
         {
             "src": "images/logo.svg",
             "sizes": "any",
-            "type": "image/svg+xml",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "favicon-16x16.png",
-            "sizes": "16x16",
-            "type": "image/png"
+            "type": "image/svg+xml"
         },
         {
             "src": "favicon-32x32.png",
@@ -30,9 +23,5 @@
             "type": "image/png"
         }
     ],
-    "categories": ["business", "finance", "productivity"],
-    "lang": "en-US",
-    "dir": "ltr",
-    "scope": "/",
-    "prefer_related_applications": false
+    "lang": "en-US"
 }

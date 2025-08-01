@@ -113,11 +113,59 @@
     }
     </script>
 
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Preconnect for critical external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preload" href="logo.svg" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        /* Critical reset and base styles */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.625;color:#0f172a;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+        
+        /* Critical navbar styles */
+        .navbar{background:rgba(255,255,255,0.8);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:1.5rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border-bottom:1px solid rgba(255,255,255,0.2)}
+        .nav-container{max-width:none;margin:0;padding:0 3rem;display:flex;justify-content:space-between;align-items:center}
+        .logo{display:flex;align-items:center}
+        .logo-svg{height:48px;width:auto;transition:opacity 0.3s ease}
+        .nav-menu{display:flex;gap:2rem}
+        .nav-link{color:#0f172a;text-decoration:none;font-weight:500;font-size:0.9rem;letter-spacing:0.5px;transition:color 0.3s ease}
+        .hamburger{display:none;flex-direction:column;cursor:pointer}
+        .hamburger span{width:25px;height:3px;background:#0f172a;margin:3px 0;transition:0.3s;border-radius:2px}
+        
+        /* Critical hero styles */
+        .hero{padding:120px 0 80px;background:url('images/hero-image.png');background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:center;min-height:85vh;position:relative}
+        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,0,0,0.35),rgba(0,0,0,0.25));z-index:1}
+        .hero .container{position:relative;z-index:2;display:flex;align-items:center;width:100%;max-width:1280px;margin:0 auto;padding:0 1.5rem}
+        .hero-content{flex:1;max-width:650px;color:white;position:relative;z-index:2}
+        .hero-content h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;color:white;margin-bottom:2rem;line-height:1.25;text-shadow:0 4px 12px rgba(0,0,0,0.3);letter-spacing:-0.025em}
+        .hero-content p{font-size:1.4rem;color:rgba(255,255,255,0.95);margin-bottom:2.5rem;line-height:1.6;text-shadow:0 1px 4px rgba(0,0,0,0.3);max-width:500px}
+        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+        .cta-button{padding:1.5rem 3rem;border:none;border-radius:1rem;font-size:1.125rem;font-weight:600;cursor:pointer;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:0.75rem;position:relative;overflow:hidden;letter-spacing:-0.01em}
+        .cta-button.primary{background:linear-gradient(135deg,rgba(255,255,255,0.2),rgba(255,255,255,0.1));color:white;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(20px);box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1),inset 0 1px 0 rgba(255,255,255,0.2)}
+        .cta-button.secondary{background:transparent;color:white;border:1px solid rgba(255,255,255,0.4);backdrop-filter:blur(10px)}
+        
+        /* Mobile hamburger */
+        @media (max-width:768px){
+            .hamburger{display:flex}
+            .nav-menu{position:fixed;left:-100%;top:70px;flex-direction:column;background:linear-gradient(145deg,#1a365d,#2d3748);width:100%;text-align:center;transition:0.3s;box-shadow:0 10px 27px rgba(0,0,0,0.25);padding:2rem 0;border-top:3px solid #3b82f6}
+            .nav-menu.active{left:0}
+            .nav-container{padding:0 1.5rem}
+            .hero{min-height:75vh;padding:90px 0 60px}
+            .hero .container{padding:0 1.5rem}
+        }
+    </style>
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <link rel="preload" href="images/logo.svg" as="image">
     <link rel="preload" href="images/hero-image.png" as="image">
 </head>
 
@@ -127,7 +175,7 @@
             <div class="nav-container">
                 <div class="logo">
                     <a href="#home" aria-label="LBM Financial Group - Go to homepage">
-                        <img src="logo.svg" alt="LBM Financial Group" class="logo-svg">
+                        <img src="images/logo.svg" alt="LBM Financial Group" class="logo-svg">
                     </a>
                 </div>
                 <div class="nav-menu" id="nav-menu" role="menubar">

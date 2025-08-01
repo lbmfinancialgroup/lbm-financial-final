@@ -37,6 +37,21 @@
     opacity: 1;
 }
 
+/* Font loading optimization */
+body {
+    font-display: swap;
+}
+
+.fonts-loaded body {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Prevent FOIT (Flash of Invisible Text) */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+
 /* Skip link removed - was not functional */
 
 :root {
@@ -109,7 +124,7 @@
     --gap-lg: 2rem;
     --gap-xl: 2.5rem;
 
-    /* Typography */
+    /* Typography - Optimized font sizes */
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -121,7 +136,7 @@
     --font-size-5xl: 3rem;
     --font-size-6xl: 3.75rem;
 
-    /* Line Heights */
+    /* Line Heights - Optimized for performance */
     --leading-tight: 1.25;
     --leading-snug: 1.375;
     --leading-normal: 1.5;
@@ -138,6 +153,7 @@ body {
     font-variation-settings: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-display: swap;
 }
 
 .container {

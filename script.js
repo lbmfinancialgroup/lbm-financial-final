@@ -22,9 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu toggle with cached elements
     if (DOMCache.hamburger && DOMCache.navMenu) {
         DOMCache.hamburger.addEventListener('click', () => {
-            DOMCache.navMenu.classList.toggle('active');
+            const isActive = DOMCache.navMenu.classList.toggle('active');
+            DOMCache.hamburger.setAttribute('aria-expanded', isActive);
         }, { passive: true });
     }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (DOMCache.navMenu && DOMCache.hamburger) {
+            if (DOMCache.navMenu.classList.contains('active') && !DOMCache.navMenu.contains(e.target) && !DOMCache.hamburger.contains(e.target)) {
+                DOMCache.navMenu.classList.remove('active');
+                DOMCache.hamburger.setAttribute('aria-expanded', 'false');
+            }
+        }
+    }, { passive: true });
 
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -108,21 +119,7 @@ function addModalEventListeners() {
     modalEventListenersAdded = true;
 }
 
-// Add modal listeners only when needed
-function showQuoteForm(service = '') {
-    const modal = document.getElementById('quote-modal');
-    const serviceSelect = document.getElementById('service-select');
 
-    if (service && serviceSelect) {
-        serviceSelect.value = service;
-    }
-
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        addModalEventListeners(); // Add listeners only when modal is first opened
-    }
-}
 
 // Debounce utility for performance
 function debounce(func, wait) {
@@ -513,10 +510,8 @@ NetworkOptimizer.prefetchOnHover();
 NetworkOptimizer.optimizeForConnection();
 
 // Initialize performance monitoring in development
-if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     PerformanceMonitor.logPageLoadMetrics();
     PerformanceMonitor.monitorWebVitals();
-}
 
 // Performance-optimized initialization
 function initializePerformanceFeatures() {

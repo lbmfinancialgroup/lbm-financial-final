@@ -1,0 +1,38 @@
+{
+    "name": "LBM Financial Group",
+    "short_name": "LBM Financial",
+    "description": "Professional financial and operations management services for law firms and small businesses",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1a365d",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["business", "finance", "productivity"],
+    "lang": "en-US",
+    "dir": "ltr",
+    "scope": "/",
+    "prefer_related_applications": false
+}

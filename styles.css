@@ -52,6 +52,24 @@ body {
     font-display: swap;
 }
 
+/* Slow connection optimizations */
+.slow-connection * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0.01ms !important;
+}
+
+.slow-connection .service-card {
+    transform: none !important;
+    transition: none !important;
+}
+
+.slow-connection .hero::before {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
 /* Skip link removed - was not functional */
 
 :root {

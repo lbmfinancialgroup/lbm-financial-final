@@ -27,11 +27,21 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://lbmfinancialgroup.com/">
 
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1a365d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LBM Financial">
+    <meta name="msapplication-TileColor" content="#1a365d">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -116,10 +126,16 @@
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
     
     <!-- Preconnect for critical external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Prefetch likely next page resources -->
+    <link rel="prefetch" href="images/Financial Operations-image.png">
+    <link rel="prefetch" href="images/Business Consulting-image.png">
+    <link rel="prefetch" href="images/Treasury management-image.png">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     <!-- Critical CSS for above-the-fold content -->
@@ -165,8 +181,13 @@
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
     
-    <link rel="preload" href="images/logo.svg" as="image">
-    <link rel="preload" href="images/hero-image.png" as="image">
+    <!-- Critical resource preloading -->
+    <link rel="preload" href="images/logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="images/hero-image.png" as="image" type="image/png">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
@@ -587,6 +608,22 @@
         </div>
     </footer>
 
+    <!-- Service Worker Registration -->
+    <script>
+        // Register service worker for caching and offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+    
     <script src="script.js" defer></script>
 </body>
 

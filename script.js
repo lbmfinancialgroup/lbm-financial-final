@@ -365,6 +365,64 @@ if ('fonts' in document) {
     });
 }
 
+// Network optimization utilities
+const NetworkOptimizer = {
+    // Prefetch resources on hover
+    prefetchOnHover() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    // Prefetch section-specific resources
+                    this.prefetchSectionResources(href.substring(1));
+                }
+            }, { passive: true, once: true });
+        });
+    },
+
+    prefetchSectionResources(sectionId) {
+        const resourceMap = {
+            'services': [
+                'images/Financial Operations-image.png',
+                'images/Business Consulting-image.png',
+                'images/Treasury management-image.png'
+            ],
+            'nonprofit': [
+                'images/community support-image.png',
+                'images/Financial Literacy.png'
+            ],
+            'about': [
+                'images/Team Lead-image.png'
+            ]
+        };
+
+        const resources = resourceMap[sectionId];
+        if (resources) {
+            resources.forEach(resource => {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = resource;
+                document.head.appendChild(link);
+            });
+        }
+    },
+
+    // Optimize image loading based on connection
+    optimizeForConnection() {
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            const slowConnection = connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g';
+            
+            if (slowConnection) {
+                // Disable non-critical animations for slow connections
+                document.body.classList.add('slow-connection');
+                console.log('Slow connection detected, optimizing experience');
+            }
+        }
+    }
+};
+
 // Performance monitoring utilities
 const PerformanceMonitor = {
     measureFunction(fn, name) {
@@ -381,19 +439,68 @@ const PerformanceMonitor = {
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const navigation = performance.getEntriesByType('navigation')[0];
+                const paint = performance.getEntriesByType('paint');
+                
                 console.log('Page Load Metrics:', {
                     'DOM Content Loaded': `${navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart}ms`,
                     'Load Complete': `${navigation.loadEventEnd - navigation.loadEventStart}ms`,
-                    'Total Load Time': `${navigation.loadEventEnd - navigation.fetchStart}ms`
+                    'Total Load Time': `${navigation.loadEventEnd - navigation.fetchStart}ms`,
+                    'First Paint': paint.find(p => p.name === 'first-paint')?.startTime.toFixed(2) + 'ms',
+                    'First Contentful Paint': paint.find(p => p.name === 'first-contentful-paint')?.startTime.toFixed(2) + 'ms'
                 });
+
+                // Log resource loading times
+                const resources = performance.getEntriesByType('resource');
+                const slowResources = resources.filter(r => r.duration > 100);
+                if (slowResources.length > 0) {
+                    console.log('Slow loading resources:', slowResources.map(r => ({
+                        name: r.name,
+                        duration: r.duration.toFixed(2) + 'ms'
+                    })));
+                }
             }, 0);
         });
+    },
+
+    // Monitor Core Web Vitals
+    monitorWebVitals() {
+        // Largest Contentful Paint
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.startTime.toFixed(2) + 'ms');
+        }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+        // First Input Delay
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            entries.forEach(entry => {
+                console.log('FID:', entry.processingStart - entry.startTime + 'ms');
+            });
+        }).observe({ entryTypes: ['first-input'] });
+
+        // Cumulative Layout Shift
+        let clsValue = 0;
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            entries.forEach(entry => {
+                if (!entry.hadRecentInput) {
+                    clsValue += entry.value;
+                }
+            });
+            console.log('CLS:', clsValue.toFixed(4));
+        }).observe({ entryTypes: ['layout-shift'] });
     }
 };
+
+// Initialize network optimizations
+NetworkOptimizer.prefetchOnHover();
+NetworkOptimizer.optimizeForConnection();
 
 // Initialize performance monitoring in development
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     PerformanceMonitor.logPageLoadMetrics();
+    PerformanceMonitor.monitorWebVitals();
 }
 
 // Performance-optimized initialization

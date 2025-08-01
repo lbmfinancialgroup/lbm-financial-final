@@ -330,7 +330,6 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     /* Optimize backdrop filter performance */
     will-change: backdrop-filter;
-    contain: layout style paint;
 }
 
 .nav-container {

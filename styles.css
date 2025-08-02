@@ -401,6 +401,10 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    border: 1px solid var(--brand-primary);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: transparent;
 }
 
 .hamburger span {

@@ -406,7 +406,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--text-primary);
+    background: var(--brand-primary);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -1170,6 +1170,7 @@ body {
     position: relative;
     padding-left: 1.5rem;
     line-height: 1.4;
+    text-align: left;
 }
 
 .service-details li::before {

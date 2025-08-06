@@ -537,7 +537,15 @@
                     </div>
                     <div class="contact-form-container">
                         <h3>Send us a message</h3>
-                        <form class="contact-form" role="form" aria-label="Contact form">
+                        <form class="contact-form" role="form" aria-label="Contact form" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="008130de-38af-4202-8d6c-1d179a2576ed">
+                            <!-- Optional: Can be type="hidden" or type="text" for subject -->
+                            <input type="hidden" name="subject" value="Contact Us Message">
+                            <input type="hidden" name="from_name" value="LBM Financial">
+                            <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+                            <!-- Start contact form fields -->
+
                             <label for="contact-name" class="sr-only">Your Name</label>
                             <input type="text" id="contact-name" name="name" placeholder="Your Name" required
                                 aria-required="true">
@@ -567,7 +575,14 @@
         <div class="modal-content">
             <span class="close" onclick="closeQuoteForm()">&times;</span>
             <h2>Get a Quote</h2>
-            <form id="quote-form" role="form" aria-label="Quote request form">
+            <form id="quote-form" role="form" aria-label="Quote request form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="008130de-38af-4202-8d6c-1d179a2576ed">
+                <!-- Optional: Can be type="hidden" or type="text" for subject -->
+                <input type="hidden" name="subject" value="Quote Request">
+                <input type="hidden" name="from_name" value="LBM Financial">
+                <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+                <!-- Start contact form fields -->
                 <label for="quote-name" class="sr-only">Your Name</label>
                 <input type="text" id="quote-name" name="name" placeholder="Your Name" required aria-required="true">
 

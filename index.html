@@ -31,7 +31,7 @@
     <link rel="manifest" href="manifest.json">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="images/logo-final.jpg">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="icon" type="image/jpeg" sizes="32x32" href="favicon-32x32.jpg">
     <link rel="icon" type="image/jpeg" sizes="16x16" href="favicon-16x16.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.jpg">
@@ -79,7 +79,7 @@
         "name": "LBM Financial Group",
         "description": "Professional financial and operations management services for law firms and small businesses. Expert bookkeeping, consulting, and treasury management with a community-focused mission.",
         "url": "https://lbmfinancialgroup.com",
-        "logo": "https://lbmfinancialgroup.com/logo-final.jpg",
+        "logo": "https://lbmfinancialgroup.com/logo.png",
         "image": "https://lbmfinancialgroup.com/og-image.jpg",
         "telephone": "(555) 123-4567",
         "email": "info@lbmfinancialgroup.com",
@@ -145,14 +145,14 @@
         body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.625;color:#0f172a;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
         
         /* Critical navbar styles */
-        .navbar{background:rgba(255,255,255,0.8);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:1.5rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border-bottom:1px solid rgba(255,255,255,0.2)}
+        .navbar{background:#1a365d;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:1rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border-bottom:1px solid rgba(255,255,255,0.2)}
         .nav-container{max-width:none;margin:0;padding:0 3rem;display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center}
-        .logo-svg{height:48px;width:auto;transition:opacity 0.3s ease}
+        .logo-svg{height:60px;width:auto;transition:opacity 0.3s ease}
         .nav-menu{display:flex;gap:2rem}
-        .nav-link{color:#0f172a;text-decoration:none;font-weight:500;font-size:0.9rem;letter-spacing:0.5px;transition:color 0.3s ease}
-        .hamburger{display:none;flex-direction:column;cursor:pointer;border:1px solid #1a365d;border-radius:5px;padding:5px;background-color:transparent}
-        .hamburger span{width:25px;height:3px;background:#0f172a;margin:3px 0;transition:0.3s;border-radius:2px}
+        .nav-link{color:white;text-decoration:none;font-weight:500;font-size:0.9rem;letter-spacing:0.5px;transition:color 0.3s ease}
+        .hamburger{display:none;flex-direction:column;cursor:pointer;border:1px solid #1a365d;border-radius:5px;padding:5px;background-color:white;z-index:1001}
+        .hamburger span{width:25px;height:3px;background:#1a365d;margin:3px 0;transition:0.3s;border-radius:2px}
         
         /* Critical hero styles */
                 .hero{padding:120px 0 80px;background:url('images/hero-image.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:center;min-height:85vh;position:relative}
@@ -168,8 +168,8 @@
         
         /* Mobile hamburger */
         @media (max-width:768px){
-            .hamburger{display:flex}
-            .nav-menu{position:fixed;left:-100%;top:70px;flex-direction:column;background:linear-gradient(145deg,#1a365d,#2d3748);width:100%;text-align:center;transition:0.3s;box-shadow:0 10px 27px rgba(0,0,0,0.25);padding:2rem 0;border-top:3px solid #3b82f6}
+            .hamburger{display:flex !important;position:relative;z-index:1001}
+            .nav-menu{position:fixed;left:-100%;top:76px;flex-direction:column;background:linear-gradient(145deg,#1a365d,#2d3748);width:100%;text-align:center;transition:0.3s;box-shadow:0 10px 27px rgba(0,0,0,0.25);padding:2rem 0;border-top:3px solid #3b82f6}
             .nav-menu.active{left:0}
             .nav-container{padding:0 1.5rem}
             .hero{min-height:75vh;padding:90px 0 60px}
@@ -182,7 +182,7 @@
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
     
     <!-- Critical resource preloading -->
-    <link rel="preload" href="images/logo-final.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="images/logo.png" as="image" type="image/png">
     <link rel="preload" href="images/hero-image.jpg" as="image" type="image/jpeg">
     <link rel="preload" href="script.js" as="script">
     
@@ -196,7 +196,7 @@
             <div class="nav-container">
                 <div class="logo">
                     <a href="#home" aria-label="LBM Financial Group - Go to homepage">
-                        <img src="images/logo-final.jpg" alt="LBM Financial Group" class="logo-svg">
+                        <img src="images/logo.png" alt="LBM Financial Group" class="logo-svg">
                     </a>
                 </div>
                 <div class="nav-menu" id="nav-menu" role="menubar">

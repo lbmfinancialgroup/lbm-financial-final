@@ -1052,11 +1052,18 @@ body {
     transform-style: preserve-3d;
     /* Optimize for smooth animations */
     will-change: transform;
-    backface-visibility: hidden;
 }
 
-.service-card-container.flipped .service-card {
-    transform: rotateY(180deg);
+.service-card-container.flipped .service-card-front {
+    opacity: 0;
+    transform: rotateY(90deg);
+    pointer-events: none;
+}
+
+.service-card-container.flipped .service-card-back {
+    opacity: 1;
+    transform: rotateY(0deg);
+    pointer-events: auto;
 }
 
 /* Front and Back of Card */
@@ -1065,7 +1072,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -1080,6 +1086,20 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
+}
+
+.service-card-front {
+    opacity: 1;
+    transform: rotateY(0deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: auto;
+}
+
+.service-card-back {
+    opacity: 0;
+    transform: rotateY(-90deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
 }
 
 .service-card-front::before,

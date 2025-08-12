@@ -2002,19 +2002,42 @@ ervice Image Fallback Styling */
 
 .nonprofit-image-visual h4 {
     color: #1a365d;
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
     text-align: center;
 }
 
 .nonprofit-image-visual p {
     color: #666;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     text-align: center;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 450px;
+}
+
+.nonprofit-image-visual .nonprofit-image {
+    height: 220px;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-image-visual .nonprofit-image {
+        height: 250px;
+        margin-bottom: 2.5rem;
+    }
+    
+    .nonprofit-image-visual h4 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .nonprofit-image-visual p {
+        font-size: 1.3rem;
+    }
 }
 
 / * Enhanced Service Image Styling */ .service-image-fallback {
@@ -2299,22 +2322,335 @@ vice Card Image Styling */
     transform: scale(1.02);
 }
 
-/* Stretch out the single nonprofit image */
-.nonprofit-images {
-    display: flex;
-    justify-content: center;
-    margin: 3rem 0;
+/* Nonprofit cards grid layout */
+.nonprofit-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin: 4rem 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.nonprofit-image-visual {
-    max-width: 600px;
+@media (min-width: 768px) {
+    .nonprofit-cards-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-cards-grid {
+        max-width: 1200px;
+        gap: 4rem;
+    }
+}
+
+/* Removed - now using .nonprofit-card-container for all cards */
+
+/* Nonprofit Flip Card Styles */
+.nonprofit-card-container {
+    perspective: 1000px;
+    cursor: pointer;
     width: 100%;
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     border: 1px solid rgba(226, 232, 240, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 480px) {
+    .nonprofit-card-container {
+        padding: 2.5rem 2rem;
+        min-height: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .nonprofit-card-container {
+        padding: 3rem 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card-container {
+        padding: 3.5rem 3rem;
+        min-height: 450px;
+    }
+}
+
+.nonprofit-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card {
+        min-height: 450px;
+    }
+}
+
+.nonprofit-card-container.flipped .nonprofit-card-front {
+    opacity: 0;
+    transform: rotateY(90deg);
+    pointer-events: none;
+}
+
+.nonprofit-card-container.flipped .nonprofit-card-back {
+    opacity: 1;
+    transform: rotateY(0deg);
+    pointer-events: auto;
+}
+
+.nonprofit-card-front,
+.nonprofit-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card-front,
+    .nonprofit-card-back {
+        min-height: 450px;
+    }
+}
+
+.nonprofit-card-back {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+@media (min-width: 480px) {
+    .nonprofit-card-back {
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card-back {
+        padding: 3rem;
+    }
+}
+
+.nonprofit-card-front {
+    opacity: 1;
+    transform: rotateY(0deg);
+    pointer-events: auto;
+}
+
+.nonprofit-card-back {
+    opacity: 0;
+    transform: rotateY(-90deg);
+    pointer-events: none;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+}
+
+.nonprofit-card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.nonprofit-card-front h4,
+.nonprofit-card-back h4 {
+    color: #1a365d;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media (min-width: 480px) {
+    .nonprofit-card-front h4,
+    .nonprofit-card-back h4 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .nonprofit-card-front h4,
+    .nonprofit-card-back h4 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card-front h4 {
+        font-size: 1.8rem;
+    }
+    
+    .nonprofit-card-back h4 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.nonprofit-card-front p,
+.nonprofit-card-back p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 350px;
+    flex-grow: 1;
+}
+
+@media (min-width: 480px) {
+    .nonprofit-card-front p,
+    .nonprofit-card-back p {
+        font-size: 1.1rem;
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .nonprofit-card-front p,
+    .nonprofit-card-back p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        max-width: 450px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card-front p {
+        font-size: 1.3rem;
+    }
+    
+    .nonprofit-card-back p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        max-width: 400px;
+    }
+}
+
+.nonprofit-card-front .nonprofit-image {
+    height: 220px;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.nonprofit-card-front .nonprofit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card-front .nonprofit-image {
+        height: 250px;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.nonprofit-card-front .flip-hint,
+.nonprofit-card-back .flip-back-hint {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: auto;
+    font-style: italic;
+    padding-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-card-front .flip-hint,
+    .nonprofit-card-back .flip-back-hint {
+        font-size: 0.85rem;
+        padding-top: 0.5rem;
+    }
+}
+
+/* Nonprofit card bullet points */
+.nonprofit-details {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nonprofit-details li {
+    color: #475569;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.4;
+}
+
+@media (min-width: 480px) {
+    .nonprofit-details li {
+        font-size: 1rem;
+        padding-left: 1.6rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .nonprofit-details li {
+        font-size: 1.1rem;
+        padding-left: 1.8rem;
+        line-height: 1.5;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nonprofit-details {
+        gap: 0.6rem;
+        margin: 0.5rem 0;
+    }
+    
+    .nonprofit-details li {
+        font-size: 1.05rem;
+        line-height: 1.4;
+        padding-left: 1.6rem;
+    }
+}
+
+.nonprofit-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 1rem;
+    top: 0;
 }
 
 /* Enh

@@ -94,6 +94,11 @@ function flipCard(card) {
     card.classList.toggle("flipped");
 }
 
+// Function to flip nonprofit cards
+function flipNonprofitCard(card) {
+    card.classList.toggle("flipped");
+}
+
 const contactForm = document.getElementById('contact-form');
 const contactResult = document.getElementById('contact-result');
 const quoteForm = document.getElementById('quote-form');

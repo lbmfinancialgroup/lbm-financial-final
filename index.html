@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="LBM Financial Group provides professional financial and operations management services for law firms and small businesses. Expert bookkeeping, consulting, and treasury management with a community-focused mission.">
-    
+
     <meta name="keywords"
         content="financial services, bookkeeping, business consulting, treasury management, tax preparation, financial operations, CFO services, financial planning, cash flow management, business formation, financial reporting, payroll services, accounts payable, accounts receivable, financial controls, settlement consulting, class action administration, qualified settlement fund, financial literacy, nonprofit financial services">
 
@@ -15,13 +15,13 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo-new.png">
     <link rel="icon" type="image/jpeg" sizes="32x32" href="favicon-32x32.jpg">
     <link rel="icon" type="image/jpeg" sizes="16x16" href="favicon-16x16.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.jpg">
-    
+
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#1a365d">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -65,7 +65,7 @@
         "name": "LBM Financial Group",
         "description": "Professional financial and operations management services for law firms and small businesses. Expert bookkeeping, consulting, and treasury management with a community-focused mission.",
         "url": "https://lbmfinancialgroup.com",
-        "logo": "https://lbmfinancialgroup.com/logo.png",
+        "logo": "https://lbmfinancialgroup.com/logo-new.png",
         "image": "https://lbmfinancialgroup.com/og-image.jpg",
         "email": "info@lbmfinancialgroup.com",
         "areaServed": "United States",
@@ -99,67 +99,264 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
-    
+
     <!-- Preconnect for critical external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- Prefetch likely next page resources -->
     <link rel="prefetch" href="images/Financial Operations-image.jpg">
     <link rel="prefetch" href="images/Business Consulting-image.jpg">
     <link rel="prefetch" href="images/Treasury management-image.jpg">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
     <!-- Critical CSS for above-the-fold content -->
     <style>
         /* Critical reset and base styles */
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.625;color:#0f172a;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.625;
+            color: #0f172a;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
         /* Critical navbar styles */
-        .navbar{background:#1a365d;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:1rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border-bottom:1px solid rgba(255,255,255,0.2)}
-        .nav-container{max-width:none;margin:0;padding:0 3rem;display:flex;justify-content:space-between;align-items:center}
-        .logo{display:flex;align-items:center}
-        .logo-svg{height:60px;width:auto;transition:opacity 0.3s ease}
-        .nav-menu{display:flex;gap:2rem}
-        .nav-link{color:white;text-decoration:none;font-weight:500;font-size:0.9rem;letter-spacing:0.5px;transition:color 0.3s ease}
-        .hamburger{display:none;flex-direction:column;cursor:pointer;border:1px solid #1a365d;border-radius:5px;padding:5px;background-color:white;z-index:1001}
-        .hamburger span{width:25px;height:3px;background:#1a365d;margin:3px 0;transition:0.3s;border-radius:2px}
-        
+        .navbar {
+            background: #1a365d;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+        }
+
+        .nav-container {
+            max-width: none;
+            margin: 0;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .logo {
+            display: flex;
+            align-items: center
+        }
+
+        .logo-svg {
+            height: 60px;
+            width: auto;
+            transition: opacity 0.3s ease
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            border: 1px solid #1a365d;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: white;
+            z-index: 1001
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1a365d;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px
+        }
+
         /* Critical hero styles */
-                .hero{padding:120px 0 80px;background:url('images/hero-image.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:center;min-height:85vh;position:relative}
-        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,0,0,0.35),rgba(0,0,0,0.25));z-index:1}
-        .hero .container{position:relative;z-index:2;display:flex;align-items:center;width:100%;max-width:1280px;margin:0 auto;padding:0 1.5rem}
-        .hero-content{flex:1;max-width:650px;color:white;position:relative;z-index:2}
-        .hero-content h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;color:white;margin-bottom:2rem;line-height:1.25;text-shadow:0 4px 12px rgba(0,0,0,0.3);letter-spacing:-0.025em}
-        .hero-content p{font-size:1.4rem;color:rgba(255,255,255,0.95);margin-bottom:2.5rem;line-height:1.6;text-shadow:0 1px 4px rgba(0,0,0,0.3);max-width:500px}
-        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
-        .cta-button{padding:1.5rem 3rem;border:none;border-radius:1rem;font-size:1.125rem;font-weight:600;cursor:pointer;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:0.75rem;position:relative;overflow:hidden;letter-spacing:-0.01em}
-        .cta-button.primary{background:linear-gradient(135deg,rgba(255,255,255,0.2),rgba(255,255,255,0.1));color:white;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(20px);box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1),inset 0 1px 0 rgba(255,255,255,0.2)}
-        .cta-button.secondary{background:transparent;color:white;border:1px solid rgba(255,255,255,0.4);backdrop-filter:blur(10px)}
-        
+        .hero {
+            padding: 120px 0 80px;
+            background: url('images/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            min-height: 85vh;
+            position: relative
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25));
+            z-index: 1
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+            color: white;
+            position: relative;
+            z-index: 2
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            line-height: 1.25;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.025em
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            max-width: 500px
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .cta-button {
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: -0.01em
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px)
+        }
+
         /* Mobile hamburger */
-        @media (max-width:768px){
-            .hamburger{display:flex !important;position:relative;z-index:1001}
-            .nav-menu{position:fixed;left:-100%;top:76px;flex-direction:column;background:linear-gradient(145deg,#1a365d,#2d3748);width:100%;text-align:center;transition:0.3s;box-shadow:0 10px 27px rgba(0,0,0,0.25);padding:2rem 0;border-top:3px solid #3b82f6}
-            .nav-menu.active{left:0}
-            .nav-container{padding:0 1.5rem}
-            .hero{min-height:75vh;padding:90px 0 60px}
-            .hero .container{padding:0 1.5rem}
+        @media (max-width:768px) {
+            .hamburger {
+                display: flex !important;
+                position: relative;
+                z-index: 1001
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 76px;
+                flex-direction: column;
+                background: linear-gradient(145deg, #1a365d, #2d3748);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.25);
+                padding: 2rem 0;
+                border-top: 3px solid #3b82f6
+            }
+
+            .nav-menu.active {
+                left: 0
+            }
+
+            .nav-container {
+                padding: 0 1.5rem
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 90px 0 60px
+            }
+
+            .hero .container {
+                padding: 0 1.5rem
+            }
         }
     </style>
-    
+
     <!-- Load non-critical CSS asynchronously -->
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
-    
+    <noscript>
+        <link rel="stylesheet" href="styles.css">
+    </noscript>
+
     <!-- Critical resource preloading -->
-    <link rel="preload" href="images/logo.png" as="image" type="image/png">
+    <link rel="preload" href="images/logo-new.png" as="image" type="image/png">
     <link rel="preload" href="images/hero-image.jpg" as="image" type="image/jpeg">
     <link rel="preload" href="script.js" as="script">
-    
+
     <!-- Preload critical fonts -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload"
+        href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+        as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
@@ -168,7 +365,7 @@
             <div class="nav-container">
                 <div class="logo">
                     <a href="#home" aria-label="LBM Financial Group - Go to homepage">
-                        <img src="images/logo.png" alt="LBM Financial Group" class="logo-svg">
+                        <img src="images/logo-new.png" alt="LBM Financial Group" class="logo-svg">
                     </a>
                 </div>
                 <div class="nav-menu" id="nav-menu" role="menubar">
@@ -191,7 +388,7 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Financial Solutions with Purpose</h1>
+                    <h1>Financial Solutions with a Purpose</h1>
                     <p>Empowering your business while giving back to the community through financial literacy and
                         support.</p>
                     <div class="hero-buttons">
@@ -205,10 +402,11 @@
         <!-- Mission Statement -->
         <section class="mission">
             <div class="container">
-                <h2>Financial Solutions with Purpose</h2>
-                <p>At LBM Financial Group, we believe access to smart financial guidance can change lives. That's why we
-                    blend business expertise with a community-driven mission by supporting growth for companies and
-                    recovery for people.</p>
+                <h2>Driving Success for Businesses and Communities</h2>
+                <p>​At LBM Financial Group, we believe access to smart financial guidance can change lives. We blend
+                    business expertise with a community-driven mission and <strong>reinvest 10% of every dollar
+                        earned</strong> to provide food, supplies, and support for those in need, while helping
+                    companies grow and people recover.</p>
             </div>
         </section>
 
@@ -222,10 +420,9 @@
                             <!-- Front of card -->
                             <div class="service-card-front">
                                 <div class="service-image">
-                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                         data-src="images/Financial Operations-image.jpg"
-                                         alt="Financial & Operations Management"
-                                         class="lazy-load">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                        data-src="images/Financial Operations-image.jpg"
+                                        alt="Financial & Operations Management" class="lazy-load">
                                 </div>
                                 <h3>Financial & Operations Management</h3>
                                 <p>Bookkeeping, reporting, and back-end support for law firms and small businesses.</p>
@@ -255,10 +452,9 @@
                             <!-- Front of card -->
                             <div class="service-card-front">
                                 <div class="service-image">
-                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                         data-src="images/Business Consulting-image.jpg" 
-                                         alt="Business Consulting"
-                                         class="lazy-load">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                        data-src="images/Business Consulting-image.jpg" alt="Business Consulting"
+                                        class="lazy-load">
                                 </div>
                                 <h3>Business Consulting</h3>
                                 <p>Strategy, forecasting, and financial planning built around each client's goals.</p>
@@ -288,10 +484,9 @@
                             <!-- Front of card -->
                             <div class="service-card-front">
                                 <div class="service-image">
-                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                         data-src="images/Treasury management-image.jpg" 
-                                         alt="Treasury Management"
-                                         class="lazy-load">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                        data-src="images/Treasury management-image.jpg" alt="Treasury Management"
+                                        class="lazy-load">
                                 </div>
                                 <h3>Treasury Management</h3>
                                 <p>Cash flow, large account oversight, internal controls, and vendor/payee
@@ -322,10 +517,9 @@
                             <!-- Front of card -->
                             <div class="service-card-front">
                                 <div class="service-image">
-                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                         data-src="images/Tax pre & compliance-image.jpg" 
-                                         alt="Tax Prep & Compliance"
-                                         class="lazy-load">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                        data-src="images/Tax pre & compliance-image.jpg" alt="Tax Prep & Compliance"
+                                        class="lazy-load">
                                 </div>
                                 <h3>Tax Prep & Compliance</h3>
                                 <p>Tax filing and compliance services for individuals and businesses.</p>
@@ -354,10 +548,9 @@
                             <!-- Front of card -->
                             <div class="service-card-front">
                                 <div class="service-image">
-                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                         data-src="images/Class Action & Settlement Consulting-image.jpg"
-                                         alt="Class Action & Settlement Consulting"
-                                         class="lazy-load">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                        data-src="images/Class Action & Settlement Consulting-image.jpg"
+                                        alt="Class Action & Settlement Consulting" class="lazy-load">
                                 </div>
                                 <h3>Class Action & Settlement Consulting</h3>
                                 <p>Expert disbursement and tracking services for legal settlements, with regulatory
@@ -394,10 +587,9 @@
                 <div class="nonprofit-content">
                     <div class="community-support-feature">
                         <div class="community-support-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                 data-src="images/community support-image.jpg"
-                                 alt="Community Support - Volunteers helping families"
-                                 class="lazy-load">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                data-src="images/community support-image.jpg"
+                                alt="Community Support - Volunteers helping families" class="lazy-load">
                         </div>
                         <div class="community-support-content">
                             <h3>Supporting Recovery & Growth</h3>
@@ -408,10 +600,9 @@
                     <div class="nonprofit-visual">
                         <div class="nonprofit-image-visual">
                             <div class="nonprofit-image">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                     data-src="images/Financial Literacy.jpg" 
-                                     alt="Financial Literacy Workshop"
-                                     class="lazy-load">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                    data-src="images/Financial Literacy.jpg" alt="Financial Literacy Workshop"
+                                    class="lazy-load">
                             </div>
                             <h4>Financial Literacy</h4>
                             <p>Educational workshops and resources to empower individuals with financial knowledge.</p>
@@ -429,18 +620,17 @@
                 <!-- Mobile-first: Image at top -->
                 <div class="about-image-mobile">
                     <div class="professional-headshot">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='380'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                             data-src="images/Team Lead-image.jpg" 
-                             alt="Team Leader - 20+ Years Experience"
-                             class="lazy-load">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='380'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                            data-src="images/Team Lead-image.jpg" alt="Team Leader - 20+ Years Experience"
+                            class="lazy-load">
                     </div>
                 </div>
 
                 <!-- Mission statement - full width centered -->
                 <div class="community-mission">
-                    <p>At LBM Financial Group, we don't just manage numbers. We help people. Our mission is
-                        rooted in integrity, transparency, and impact. We're committed to helping businesses
-                        grow while giving back to the community.</p>
+                    <p>At LBM Financial Group, we don’t just manage numbers. We help people build stability, recover
+                        from setbacks, and reach their goals. Our mission is rooted in integrity, transparency, and
+                        impact, and every client we serve helps us give back to the community.</p>
                 </div>
 
                 <div class="about-content">
@@ -458,7 +648,8 @@
                             </div>
                             <div class="credential-item">
                                 <h4>Business + Nonprofit Model</h4>
-                                <p>We reinvest 10% of every dollar earned to help provide food, supplies, and support
+                                <p>We <strong>reinvest 10% of every dollar earned</strong> to help provide food,
+                                    supplies, and support
                                     services for individuals in need. When you work with us, you're also helping someone
                                     else.</p>
                             </div>
@@ -478,10 +669,9 @@
                     <!-- Desktop: Image on the side -->
                     <div class="why-image-desktop">
                         <div class="professional-headshot">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='380'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E" 
-                                 data-src="images/Team Lead-image.jpg" 
-                                 alt="Team Leader - 20+ Years Experience"
-                                 class="lazy-load">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='380'%3E%3Crect width='100%25' height='100%25' fill='%23f8fafc'/%3E%3C/svg%3E"
+                                data-src="images/Team Lead-image.jpg" alt="Team Leader - 20+ Years Experience"
+                                class="lazy-load">
                         </div>
                     </div>
                 </div>

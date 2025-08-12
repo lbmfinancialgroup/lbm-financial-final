@@ -2653,6 +2653,11 @@ vice Card Image Styling */
     top: 0;
 }
 
+/* Left-align the reason text in the nonprofit card */
+.reason-text {
+    text-align: left !important;
+}
+
 /* Enh
 anced Visual Design - Background Colors & Typography */
 

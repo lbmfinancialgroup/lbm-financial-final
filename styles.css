@@ -1453,6 +1453,44 @@ body {
     font-size: 1.1rem;
 }
 
+/* Social Media Styling */
+.social-media {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, var(--brand-accent), var(--brand-accent-light));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.social-link.linkedin:hover {
+    background: linear-gradient(135deg, #0077b5, #00a0dc);
+}
+
 .contact-form-container h3 {
     color: #1a365d;
     margin-bottom: 1.5rem;
@@ -1610,14 +1648,18 @@ footer {
 
 /* Success Modal */
 #success-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2001; /* Sit on top of everything */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 2001;
+    /* Sit on top of everything */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Darker overlay */
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
@@ -2029,12 +2071,12 @@ ervice Image Fallback Styling */
         height: 250px;
         margin-bottom: 2.5rem;
     }
-    
+
     .nonprofit-image-visual h4 {
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .nonprofit-image-visual p {
         font-size: 1.3rem;
     }
@@ -2435,6 +2477,7 @@ vice Card Image Styling */
 }
 
 @media (min-width: 1024px) {
+
     .nonprofit-card-front,
     .nonprofit-card-back {
         min-height: 450px;
@@ -2487,6 +2530,7 @@ vice Card Image Styling */
 }
 
 @media (min-width: 480px) {
+
     .nonprofit-card-front h4,
     .nonprofit-card-back h4 {
         font-size: 1.4rem;
@@ -2495,6 +2539,7 @@ vice Card Image Styling */
 }
 
 @media (min-width: 768px) {
+
     .nonprofit-card-front h4,
     .nonprofit-card-back h4 {
         font-size: 1.6rem;
@@ -2506,7 +2551,7 @@ vice Card Image Styling */
     .nonprofit-card-front h4 {
         font-size: 1.8rem;
     }
-    
+
     .nonprofit-card-back h4 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
@@ -2525,6 +2570,7 @@ vice Card Image Styling */
 }
 
 @media (min-width: 480px) {
+
     .nonprofit-card-front p,
     .nonprofit-card-back p {
         font-size: 1.1rem;
@@ -2533,6 +2579,7 @@ vice Card Image Styling */
 }
 
 @media (min-width: 768px) {
+
     .nonprofit-card-front p,
     .nonprofit-card-back p {
         font-size: 1.2rem;
@@ -2545,7 +2592,7 @@ vice Card Image Styling */
     .nonprofit-card-front p {
         font-size: 1.3rem;
     }
-    
+
     .nonprofit-card-back p {
         font-size: 1.1rem;
         line-height: 1.5;
@@ -2584,6 +2631,7 @@ vice Card Image Styling */
 }
 
 @media (min-width: 1024px) {
+
     .nonprofit-card-front .flip-hint,
     .nonprofit-card-back .flip-back-hint {
         font-size: 0.85rem;
@@ -2635,7 +2683,7 @@ vice Card Image Styling */
         gap: 0.6rem;
         margin: 0.5rem 0;
     }
-    
+
     .nonprofit-details li {
         font-size: 1.05rem;
         line-height: 1.4;

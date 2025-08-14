@@ -1332,6 +1332,33 @@ body {
     background: white;
 }
 
+/* Mobile optimizations for nonprofit section */
+@media (max-width: 768px) {
+
+    /* Fix image sizing on mobile - this was the main issue */
+    .nonprofit-image {
+        height: 180px !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        border-radius: 0 !important;
+    }
+
+    .nonprofit-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Extra small screens - even smaller images */
+@media (max-width: 480px) {
+    .nonprofit-image {
+        height: 150px !important;
+    }
+}
+
 .nonprofit h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -1356,6 +1383,7 @@ body {
 
 .nonprofit-content {
     text-align: center;
+    border-radius: 0;
 }
 
 .nonprofit-content>p {
@@ -2399,7 +2427,7 @@ vice Card Image Styling */
     text-align: center;
     padding: 1.8rem 1.3rem;
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 0;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     border: 1px solid rgba(226, 232, 240, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -2486,7 +2514,7 @@ vice Card Image Styling */
 
 .nonprofit-card-back {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
-    border-radius: 16px;
+    border-radius: 0;
     padding: 1.2rem;
 }
 
@@ -2513,6 +2541,7 @@ vice Card Image Styling */
     transform: rotateY(-90deg);
     pointer-events: none;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+    border-radius: 0;
 }
 
 .nonprofit-card-container:hover {

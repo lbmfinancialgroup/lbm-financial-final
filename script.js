@@ -163,3 +163,23 @@ window.addEventListener('click', (e) => {
         successModal.style.display = 'none';
     }
 });
+
+// Privacy Policy Modal functionality
+const privacyModal = document.getElementById('privacy-modal');
+const privacyModalClose = document.getElementById('privacy-modal-close');
+
+function showPrivacyPolicy() {
+    privacyModal.style.display = 'block';
+}
+
+function closePrivacyPolicy() {
+    privacyModal.style.display = 'none';
+}
+
+privacyModalClose.addEventListener('click', closePrivacyPolicy);
+
+window.addEventListener('click', (e) => {
+    if (e.target == privacyModal) {
+        privacyModal.style.display = 'none';
+    }
+});
